@@ -22,6 +22,9 @@ permissions:
 
 jobs:
   docker:
+    concurrency:
+      group: relay-gpio-container-build
+      cancel-in-progress: true
     uses: FyraLabs/actions/.github/workflows/docker.yml@main
     with:
       publish: ${{ github.event_name != 'pull_request' }}
