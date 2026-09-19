@@ -1,0 +1,42 @@
+# Meson
+build/
+build-meson/
+build-meson-*/
+meson-logs/
+meson-private/
+meson-info/
+meson-uninstalled/
+meson devenv/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+Makefile
+
+# Compiled binaries and objects
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+relay-gpio
+
+# Test and runtime output
+*.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

@@ -1,0 +1,28 @@
+# Build output
+build/
+build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+meson-logs/
+meson-private/
+meson-info/
+meson-uninstalled/
+
+# Version-control and local metadata
+.git/
+.gitignore
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs and binaries
+*.log
+*.o
+relay-gpio

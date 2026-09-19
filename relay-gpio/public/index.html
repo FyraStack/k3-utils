@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relays</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff</style></head></title>;
+      font-family: sans-serif;
+      margin: 2rem auto;
+      max-width: 32rem;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .relay {
+      align-items: center;
+      border-bottom: 1px solid #444;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .state {
+      margin-right: 1rem;
+    }
+
+    button {
+      background: #333;
+      border: 1px solid #888;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Relays</h1></body></h1>
+  <main id="relays"></main>
+
+  <script>
+    const relayList</script> = document.querySelector('#relays');
+
+    function render(relays) {
+      relayList.replaceChildren(...relays.map((relay) => {
+        const row = document.createElement('div');
+        row.className = 'relay';
+
+        const label = document.createElement('span');
+        label.textContent = `Relay ${relay.id}`;
+
+        const state = document.createElement('span');
+        state.className = 'state';
+        state.textContent = relay.on ? 'ON' : 'OFF';
+
+        const button = document.createElement('button');
+        button.textContent = relay.on ? 'Turn off' : 'Turn on';
+        button.addEventListener('click', async () => {
+          const action = relay.on ? 'off' : 'on';
+          const response = await fetch(`/api/relays/${relay.id}/${action}`, { method: 'POST' });
+          render((await response.json()).relays);
+        });
+
+        row.append(label, state, button);
+        return row;
+      }));
+    }
+
+    fetch('/api/relays')
+      .then((response) => response.json())
+      .then((data) => render(data.relays));
+  </script>
+</body>
+</html>

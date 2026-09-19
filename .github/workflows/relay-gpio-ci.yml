@@ -1,0 +1,65 @@
+name: relay-gpio CI
+
+"on":
+  push:
+    paths:
+      - "relay-gpio/**"
+      - ".github/workflows/relay-gpio-ci.yml"
+  pull_request:
+    paths:
+      - "relay-gpio/**"
+      - ".github/workflows/relay-gpio-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  format-and-lint:
+    name: Format and static analysis
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: relay-gpio
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install toolchain and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes \
+            clang-format \
+            clang-tidy \
+            g++ \
+            libgpiod-dev \
+            libgpiodcxx-dev \
+            meson \
+            ninja-build \
+            pkg-config
+
+      - name: Check formatting
+        run: |
+          clang-format --dry-run --Werror \
+            main.cpp \
+            configuration.cpp \
+            configuration.hpp \
+            relay_controller.cpp \
+            relay_controller.hpp \
+            http_server.cpp \
+            http_server.hpp
+
+      - name: Configure Meson
+        run: meson setup build -Dbuildtype=debug -Dcpp_args=-Werror
+
+      - name: Build
+        run: meson compile -C build
+
+      - name: Run clang-tidy
+        run: |
+          clang-tidy \
+            main.cpp \
+            configuration.cpp \
+            relay_controller.cpp \
+            http_server.cpp \
+            -p build \
+            --warnings-as-errors='*'
