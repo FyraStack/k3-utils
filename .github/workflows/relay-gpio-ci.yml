@@ -35,7 +35,8 @@ jobs:
             libgpiodcxx-dev \
             meson \
             ninja-build \
-            pkg-config
+            pkg-config \
+            mold
 
       - name: Check formatting
         run: |
