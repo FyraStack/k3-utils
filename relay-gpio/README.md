@@ -7,8 +7,7 @@ A small C++17 HTTP service and browser UI for controlling four GPIO relays with
 
 Install a libgpiod development package (including its C++ bindings), pkg-config,
 and either CMake or Meson. For Debian/Raspberry Pi OS, install
-`libgpiod-dev` and `libgpiodcxx-dev` when available. This project uses the
-libgpiod 1.x C++ bindings (`gpiod.hpp`).
+`libgpiod-dev` and `libgpiodcxx-dev` when available. For Fedora, install `libgpiod-devel` and `libgpiod-c++`. This project uses the libgpiod 1.x C++ bindings (`gpiod.hpp`).
 
 ### Meson
 

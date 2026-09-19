@@ -8,6 +8,11 @@ project(
   ],
 )
 
+mold = find_program('mold', required: false)
+if mold.found()
+  add_project_link_arguments('-fuse-ld=mold', language: 'cpp')
+endif
+
 gpiodcxx = dependency('libgpiodcxx', method: 'pkg-config')
 
 executable(

@@ -11,6 +11,7 @@ RUN apt-get update \
         libgpiod-dev \
         libgpiodcxx-dev \
         meson \
+        mold \
         pkg-config \
     && rm -rf /var/lib/apt/lists/*
 

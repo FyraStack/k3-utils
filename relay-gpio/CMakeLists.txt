@@ -5,6 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+find_program(MOLD_EXECUTABLE mold)
+if(MOLD_EXECUTABLE)
+  add_link_options(-fuse-ld=mold)
+endif()
+
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GPIODCXX REQUIRED IMPORTED_TARGET libgpiodcxx)
 
