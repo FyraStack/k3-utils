@@ -4,7 +4,6 @@
 #include "configuration.hpp"
 
 #include <iostream>
-#include <stdexcept>
 
 int main() {
     try {
