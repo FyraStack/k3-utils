@@ -12,6 +12,7 @@ name: relay-gpio CI
 
 permissions:
   contents: read
+  security-events: write
 
 jobs:
   format-and-lint:
@@ -49,8 +50,24 @@ jobs:
       - name: Build
         run: meson compile -C build
 
-      - name: Run clang-tidy
+      - name: Run clang-tidy and generate SARIF
+        id: clang-tidy
+        continue-on-error: true
         run: |
-          find . -path ./build -prune -o \
-            -type f -name '*.cpp' -print0 \
-            | xargs -0 -r clang-tidy -p build --warnings-as-errors='*'
+          python3 clang_tidy_sarif.py \
+            --clang-tidy clang-tidy \
+            --build-dir build \
+            --source-root . \
+            --output build/clang-tidy.sarif \
+            main.cpp configuration.cpp relay_controller.cpp http_server.cpp
+
+      - name: Upload clang-tidy SARIF
+        if: always() && hashFiles('relay-gpio/build/clang-tidy.sarif') != ''
+        uses: github/codeql-action/upload-sarif@1c5b675653bb5c22dbe9b12b556ec555138e09fd # v4.38.1
+        with:
+          sarif_file: relay-gpio/build/clang-tidy.sarif
+          category: clang-tidy
+
+      - name: Fail if clang-tidy found issues
+        if: steps.clang-tidy.outcome == 'failure'
+        run: exit 1

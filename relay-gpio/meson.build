@@ -38,11 +38,25 @@ if clang_format.found()
 endif
 
 clang_tidy = find_program('clang-tidy', required: false)
+python3 = find_program('python3', required: false)
 if clang_tidy.found()
   run_target(
     'clang-tidy',
     command: [clang_tidy, '-p', meson.current_build_dir(), '--warnings-as-errors=*'] + sources,
   )
+  if python3.found()
+    run_target(
+      'clang-tidy-sarif',
+      command: [
+        python3,
+        files('clang_tidy_sarif.py'),
+        '--clang-tidy', clang_tidy,
+        '--build-dir', meson.current_build_dir(),
+        '--source-root', meson.current_source_dir(),
+        '--output', meson.current_build_dir() / 'clang-tidy.sarif',
+      ] + sources,
+    )
+  endif
 endif
 
 install_subdir(
