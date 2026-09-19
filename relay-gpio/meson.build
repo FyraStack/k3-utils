@@ -13,17 +13,29 @@ if mold.found()
   add_project_link_arguments('-fuse-ld=mold', language: 'cpp')
 endif
 
-gpiodcxx = dependency('libgpiodcxx', method: 'pkg-config')
+gpiodcxx = dependency('libgpiodcxx', method: 'pkg-config', version: '>= 2.0.0')
+
+sources = files(
+  'main.cpp',
+  'configuration.cpp',
+  'relay_controller.cpp',
+  'http_server.cpp',
+)
 
 executable(
   'relay-gpio',
-  'main.cpp',
-    'configuration.cpp',
-      'relay_controller.cpp',
-    'http_server.cpp',
+  sources,
   dependencies: gpiodcxx,
   install: true,
 )
+
+clang_format = find_program('clang-format', required: false)
+if clang_format.found()
+  run_target(
+    'format',
+    command: [clang_format, '-i'] + sources,
+  )
+endif
 
 install_subdir(
   'public',

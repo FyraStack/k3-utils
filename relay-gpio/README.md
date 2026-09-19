@@ -14,6 +14,7 @@ and either CMake or Meson. For Debian/Raspberry Pi OS, install
 ```sh
 meson setup build
 meson compile -C build
+meson compile -C build format
 ```
 
 ### CMake
