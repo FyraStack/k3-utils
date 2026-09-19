@@ -25,6 +25,8 @@ namespace configuration {
 
     /**
      * Reads the four relay line offsets from RELAY_1_LINE through RELAY_4_LINE.
+     * Defaults to GPIO17, GPIO27, GPIO22, GPIO23, matching relay-board IN1-IN4
+     * on Raspberry Pi physical header pins 11, 13, 15, and 16.
      *
      * @return GPIO line offsets in relay-number order.
      * @throws std::runtime_error if an offset is negative or invalid.

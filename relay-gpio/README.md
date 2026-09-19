@@ -41,8 +41,9 @@ GPIO chip or line mapping.
 
 ## Run
 
-The defaults are `/dev/gpiochip0`, GPIO line offsets `0, 1, 2, 3`, active-low
-relays, and HTTP port `8080`:
+The defaults are `/dev/gpiochip0`, GPIO line offsets `17, 27, 22, 23`, active-low
+relays, and HTTP port `8080`. These connect relay-board IN1-IN4 to Raspberry Pi
+GPIO17/GPIO27/GPIO22/GPIO23 on physical header pins 11/13/15/16:
 
 ```sh
 sudo ./build/relay-gpio
@@ -56,15 +57,18 @@ or serve the frontend through a separate web server.
 Configure a board without changing source:
 
 ```sh
-GPIO_CHIP=/dev/gpiochip4 \
-RELAY_1_LINE=17 RELAY_2_LINE=18 RELAY_3_LINE=27 RELAY_4_LINE=22 \
+GPIO_CHIP=/dev/gpiochip0 \
+RELAY_1_LINE=17 RELAY_2_LINE=27 RELAY_3_LINE=22 RELAY_4_LINE=23 \
 RELAY_ACTIVE_LOW=1 RELAY_HTTP_PORT=8080 \
 sudo ./build/relay-gpio
 ```
 
-Verify GPIO line offsets with `gpioinfo` before connecting the relays. Do not
-connect relay coils directly to a GPIO pin; use a suitable relay module/driver,
-common ground, and an appropriately powered supply.
+Verify GPIO line offsets with `gpioinfo` before connecting the relays. The relay
+board control header is wired as DC+ to Pi physical pin 2 (5V), DC- to physical
+pin 6 (GND), IN1 to GPIO17 (pin 11), IN2 to GPIO27 (pin 13), IN3 to GPIO22
+(pin 15), and IN4 to GPIO23 (pin 16). Do not connect relay coils directly to a
+GPIO pin; use a suitable relay module/driver, common ground, and an appropriately
+powered supply.
 
 ## API
 
