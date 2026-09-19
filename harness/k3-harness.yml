@@ -1,0 +1,224 @@
+connectors:
+  ATX24:
+    type: Molex Mini-Fit Jr 24-pin (ATX)
+    # Standard ATX pin numbering; WireViz displays these numbers beside each row.
+    pinlabels:
+      [
+        3.3V (OR),
+        3.3V (OR),
+        COM (BK),
+        5V (RD),
+        COM (BK),
+        5V (RD),
+        COM (BK),
+        PWR_OK (GY),
+        5VSB (VT),
+        12V (YE),
+        12V (YE),
+        3.3V (OR),
+        3.3VS (OR),
+        -12V (BU),
+        COM (BK),
+        PS_ON# (GN),
+        COM (BK),
+        COM (BK),
+        COM (BK),
+        NC (WH legacy),
+        5V (RD),
+        5V (RD),
+        5V (RD),
+        COM (BK),
+      ]
+    pincount: 24
+    hide_disconnected_pins: false
+
+  EPS8:
+    type: Molex Mini-Fit Jr 8-pin (EPS12V)
+    # EPS pinout: pins 1-4 are +12 V; pins 5-8 are COM.
+    pinlabels: [12V (YE), 12V (YE), 12V (YE), 12V (YE), COM (BK), COM (BK), COM (BK), COM (BK)]
+    pincount: 8
+    hide_disconnected_pins: false
+
+  # Separate connector blocks keep the four relay channels visually distinct.
+  # For every relay: COM receives EPS +12V and NO feeds the K3 output. NC is unused.
+  RELAY1:
+    {
+      type: Relay 1 SPDT screw terminal,
+      pinlabels: ["NC", "NO", "COM"],
+      pincount: 3,
+      hide_disconnected_pins: false,
+    }
+  RELAY2:
+    {
+      type: Relay 2 SPDT screw terminal,
+      pinlabels: ["NC", "NO", "COM"],
+      pincount: 3,
+      hide_disconnected_pins: false,
+    }
+  RELAY3:
+    {
+      type: Relay 3 SPDT screw terminal,
+      pinlabels: ["NC", "NO", "COM"],
+      pincount: 3,
+      hide_disconnected_pins: false,
+    }
+  RELAY4:
+    {
+      type: Relay 4 SPDT screw terminal,
+      pinlabels: ["NC", "NO", "COM"],
+      pincount: 3,
+      hide_disconnected_pins: false,
+    }
+
+  RELAY_CTRL:
+    type: 4-channel relay board control header
+    pinlabels: [DC+, DC-, IN1, IN2, IN3, IN4]
+    pincount: 6
+    hide_disconnected_pins: false
+
+  RPI40:
+    type: Raspberry Pi 40-pin GPIO header
+    pinlabels:
+      [
+        3V3,
+        5V,
+        GPIO2,
+        5V,
+        GPIO3,
+        GND,
+        GPIO4,
+        GPIO14,
+        GND,
+        GPIO15,
+        GPIO17,
+        GPIO18,
+        GPIO27,
+        GND,
+        GPIO22,
+        GPIO23,
+        3V3,
+        GPIO24,
+        GPIO10,
+        GND,
+        GPIO9,
+        GPIO25,
+        GPIO11,
+        GPIO8,
+        GND,
+        GPIO7,
+        ID_SD,
+        ID_SC,
+        GPIO5,
+        GND,
+        GPIO6,
+        GPIO12,
+        GPIO13,
+        GND,
+        GPIO19,
+        GPIO16,
+        GPIO26,
+        GPIO20,
+        GND,
+        GPIO21,
+      ]
+    pincount: 40
+    hide_disconnected_pins: false
+
+  J1: { type: Molex Mini-Fit Jr 2-pin (K3 output), pinlabels: [+12V, COM], pincount: 2 }
+  J2: { type: Molex Mini-Fit Jr 2-pin (K3 output), pinlabels: [+12V, COM], pincount: 2 }
+  J3: { type: Molex Mini-Fit Jr 2-pin (K3 output), pinlabels: [+12V, COM], pincount: 2 }
+  J4: { type: Molex Mini-Fit Jr 2-pin (K3 output), pinlabels: [+12V, COM], pincount: 2 }
+
+cables:
+  PS_ON_JUMPER:
+    wirecount: 1
+    colors: [BK]
+    gauge: 22 AWG
+
+  PWR_R1_IN: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  PWR_R1_OUT: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  GND_J1: { wirecount: 1, colors: [BK], gauge: 16 AWG }
+  PWR_R2_IN: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  PWR_R2_OUT: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  GND_J2: { wirecount: 1, colors: [BK], gauge: 16 AWG }
+  PWR_R3_IN: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  PWR_R3_OUT: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  GND_J3: { wirecount: 1, colors: [BK], gauge: 16 AWG }
+  PWR_R4_IN: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  PWR_R4_OUT: { wirecount: 1, colors: [RD], gauge: 16 AWG }
+  GND_J4: { wirecount: 1, colors: [BK], gauge: 16 AWG }
+
+  CTRL_5V: { wirecount: 1, colors: [RD], gauge: 22 AWG }
+  CTRL_GND: { wirecount: 1, colors: [BK], gauge: 22 AWG }
+  CTRL_IN1: { wirecount: 1, colors: [BU], gauge: 22 AWG }
+  CTRL_IN2: { wirecount: 1, colors: [BU], gauge: 22 AWG }
+  CTRL_IN3: { wirecount: 1, colors: [BU], gauge: 22 AWG }
+  CTRL_IN4: { wirecount: 1, colors: [BU], gauge: 22 AWG }
+
+connections:
+  # PS_ON# (pin 16) bridged to COM (pin 17) - turns PSU on.
+  # Do not ground 3.3VS: it is the 3.3 V remote-sense lead.
+  - - ATX24: [16, 17]
+    - PS_ON_JUMPER
+
+  # Each K3 output switches +12V through relay COM -> NO. COM/0V is direct.
+  - - EPS8: [1]
+    - PWR_R1_IN
+    - RELAY1: [3]
+  - - RELAY1: [2]
+    - PWR_R1_OUT
+    - J1: [1]
+  - - EPS8: [5]
+    - GND_J1
+    - J1: [2]
+
+  - - EPS8: [2]
+    - PWR_R2_IN
+    - RELAY2: [3]
+  - - RELAY2: [2]
+    - PWR_R2_OUT
+    - J2: [1]
+  - - EPS8: [6]
+    - GND_J2
+    - J2: [2]
+
+  - - EPS8: [3]
+    - PWR_R3_IN
+    - RELAY3: [3]
+  - - RELAY3: [2]
+    - PWR_R3_OUT
+    - J3: [1]
+  - - EPS8: [7]
+    - GND_J3
+    - J3: [2]
+
+  - - EPS8: [4]
+    - PWR_R4_IN
+    - RELAY4: [3]
+  - - RELAY4: [2]
+    - PWR_R4_OUT
+    - J4: [1]
+  - - EPS8: [8]
+    - GND_J4
+    - J4: [2]
+
+  # Relay control header to Raspberry Pi physical header pins.
+  # GPIO inputs are assumed active-low, matching RELAY_ACTIVE_LOW=1 in compose.yaml.
+  - - RPI40: [2]
+    - CTRL_5V
+    - RELAY_CTRL: [1]
+  - - RPI40: [6]
+    - CTRL_GND
+    - RELAY_CTRL: [2]
+  - - RPI40: [11]
+    - CTRL_IN1
+    - RELAY_CTRL: [3]
+  - - RPI40: [13]
+    - CTRL_IN2
+    - RELAY_CTRL: [4]
+  - - RPI40: [15]
+    - CTRL_IN3
+    - RELAY_CTRL: [5]
+  - - RPI40: [16]
+    - CTRL_IN4
+    - RELAY_CTRL: [6]
