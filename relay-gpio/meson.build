@@ -37,6 +37,14 @@ if clang_format.found()
   )
 endif
 
+clang_tidy = find_program('clang-tidy', required: false)
+if clang_tidy.found()
+  run_target(
+    'clang-tidy',
+    command: [clang_tidy, '-p', meson.current_build_dir(), '--warnings-as-errors=*'] + sources,
+  )
+endif
+
 install_subdir(
   'public',
   install_dir: get_option('datadir') / 'relay-gpio',
