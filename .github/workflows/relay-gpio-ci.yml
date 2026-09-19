@@ -32,7 +32,6 @@ jobs:
             clang-tidy \
             g++ \
             libgpiod-dev \
-            libgpiodcxx-dev \
             meson \
             ninja-build \
             pkg-config \
