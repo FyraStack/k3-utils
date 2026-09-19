@@ -39,14 +39,9 @@ jobs:
 
       - name: Check formatting
         run: |
-          clang-format --dry-run --Werror \
-            main.cpp \
-            configuration.cpp \
-            configuration.hpp \
-            relay_controller.cpp \
-            relay_controller.hpp \
-            http_server.cpp \
-            http_server.hpp
+          find . -path ./build -prune -o \
+            -type f \( -name '*.cpp' -o -name '*.hpp' \) -print0 \
+            | xargs -0 -r clang-format --dry-run --Werror
 
       - name: Configure Meson
         run: meson setup build -Dbuildtype=debug -Dcpp_args=-Werror
@@ -56,10 +51,6 @@ jobs:
 
       - name: Run clang-tidy
         run: |
-          clang-tidy \
-            main.cpp \
-            configuration.cpp \
-            relay_controller.cpp \
-            http_server.cpp \
-            -p build \
-            --warnings-as-errors='*'
+          find . -path ./build -prune -o \
+            -type f -name '*.cpp' -print0 \
+            | xargs -0 -r clang-tidy -p build --warnings-as-errors='*'
