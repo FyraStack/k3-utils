@@ -1,8 +1,6 @@
 services:
   relay-gpio:
-    build:
-      context: .
-      dockerfile: Containerfile
+    image: ghcr.io/fyrastack/k3-utils/relay-gpio:main
     container_name: relay-gpio
     restart: unless-stopped
     ports:

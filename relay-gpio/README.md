@@ -26,17 +26,18 @@ cmake --build build
 
 ### Container
 
-The project includes [`Containerfile`](Containerfile), [`compose.yaml`](compose.yaml),
-and [`.dockerignore`](.dockerignore). Build and start it on the Linux GPIO host:
+The repository includes an example [`compose.yaml`](../compose.yaml) that uses the
+published multi-architecture image. Start it on the Linux GPIO host from the
+repository root:
 
 ```sh
-docker compose up --build -d
+docker compose -f compose.yaml up -d
 ```
 
 The Compose configuration maps `/dev/gpiochip0` into the container and exposes
 port `8080`. Open `http://<board-ip>:8080/` in a browser. Change the `devices`,
-`GPIO_CHIP`, and `RELAY_*_LINE` values in `compose.yaml` for a different GPIO
-chip or line mapping.
+`GPIO_CHIP`, and `RELAY_*_LINE` values in the root `compose.yaml` for a different
+GPIO chip or line mapping.
 
 ## Run
 
