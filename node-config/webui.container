@@ -12,6 +12,10 @@ Environment="RELAY_1_NAME=Blessed Son"
 Environment="RELAY_2_NAME="
 Environment="RELAY_3_NAME=Blessed Daughter"
 Environment="RELAY_4_NAME=Chud Daughter"
+Environment="RELAY_1_KVM_URL=https://nanokvm-blessed-son.barking-kokanue.ts.net"
+Environment="RELAY_2_KVM_URL="
+Environment="RELAY_3_KVM_URL=https://nanokvm-blessed-daughter.barking-kokanue.ts.net"
+Environment="RELAY_4_KVM_URL=https://nanokvm-chud-daughter.barking-kokanue.ts.net"
 
 [Service]
 Restart=always

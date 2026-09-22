@@ -33,3 +33,14 @@ when the container starts, so the same image can be reused with different names.
 If a name is blank or contains only whitespace, that relay is hidden from the UI.
 Its ID and GPIO position are not renumbered. Compose and Jadeite Quadlet
 deployments expose the same variables.
+
+Each relay can also have a NanoKVM URL using `RELAY_1_KVM_URL` through
+`RELAY_4_KVM_URL`. A nonblank URL adds a `KVM` button that opens in a new tab;
+blank URLs hide the button. For example:
+
+```dotenv
+RELAY_1_KVM_URL=https://nanokvm-blessed-son.barking-kokanue.ts.net
+RELAY_2_KVM_URL=
+RELAY_3_KVM_URL=https://nanokvm-blessed-daughter.barking-kokanue.ts.net
+RELAY_4_KVM_URL=https://nanokvm-chud-daughter.barking-kokanue.ts.net
+```

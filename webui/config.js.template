@@ -4,5 +4,11 @@ window.KAIROS_WEBUI_CONFIG = {
     "$RELAY_2_NAME",
     "$RELAY_3_NAME",
     "$RELAY_4_NAME"
+  ],
+  kvmUrls: [
+    "$RELAY_1_KVM_URL",
+    "$RELAY_2_KVM_URL",
+    "$RELAY_3_KVM_URL",
+    "$RELAY_4_KVM_URL"
   ]
 };

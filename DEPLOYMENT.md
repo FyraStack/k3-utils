@@ -72,6 +72,10 @@ RELAY_2_NAME=K3s node 2
 RELAY_3_NAME=K3s node 3
 # Leave a name blank to hide that relay while preserving its relay ID/GPIO slot.
 RELAY_4_NAME=
+RELAY_1_KVM_URL=https://nanokvm-blessed-son.barking-kokanue.ts.net
+RELAY_2_KVM_URL=
+RELAY_3_KVM_URL=https://nanokvm-blessed-daughter.barking-kokanue.ts.net
+RELAY_4_KVM_URL=https://nanokvm-chud-daughter.barking-kokanue.ts.net
 RELAY_1_LINE=17
 RELAY_2_LINE=27
 RELAY_3_LINE=22
