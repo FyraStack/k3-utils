@@ -6,7 +6,6 @@
 
 #include <sstream>
 #include <stdexcept>
-#include <string_view>
 
 #include <netinet/in.h>
 #include <sys/socket.h>
