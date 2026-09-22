@@ -19,16 +19,110 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/fyrastack/k3-utils/node
-  JADEITE_IMAGE: ghcr.io/nothingneko/jadeite:0.0.3-rpi4
-  RELAY_GPIO_IMAGE: ghcr.io/fyrastack/k3-utils/relay-gpio:main
-  WEBUI_IMAGE: ghcr.io/fyrastack/k3-utils/webui:main
-  AURORABOOT_IMAGE: quay.io/kairos/auroraboot:v0.25.2
+  RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+  REGISTRY_AUTH_FILE: /tmp/node-config-auth/config.json
+  RELAY_GPIO_REPOSITORY: ghcr.io/fyrastack/k3-utils/relay-gpio
+  WEBUI_REPOSITORY: ghcr.io/fyrastack/k3-utils/webui
+  NODE_REPOSITORY: ghcr.io/fyrastack/k3-utils/node
 
 jobs:
-  build-pi4-image:
-    name: Build and publish Pi 4 raw image
+  build-amd64:
+    name: Build x86_64 application images
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.release_tag }}
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes podman
+
+      - name: Log in to GHCR
+        run: |
+          sudo install -d -m 700 /tmp/node-config-auth
+          printf '%s' '${{ secrets.GITHUB_TOKEN }}' \
+            | sudo podman login ghcr.io \
+                --authfile /tmp/node-config-auth/config.json \
+                --username '${{ github.actor }}' \
+                --password-stdin
+
+      - name: Build and publish x86_64 relay-gpio
+        run: |
+          image="${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}-amd64"
+          sudo podman build \
+            --platform linux/amd64 \
+            --tag "${image}" \
+            --file relay-gpio/Containerfile \
+            relay-gpio
+          sudo podman push \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${image}"
+
+      - name: Build and publish x86_64 webui
+        run: |
+          image="${WEBUI_REPOSITORY}:${RELEASE_TAG}-amd64"
+          sudo podman build \
+            --platform linux/amd64 \
+            --tag "${image}" \
+            --file webui/Containerfile \
+            webui
+          sudo podman push \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${image}"
+
+  build-arm64:
+    name: Build ARM64 application images
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.release_tag }}
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes podman
+
+      - name: Log in to GHCR
+        run: |
+          sudo install -d -m 700 /tmp/node-config-auth
+          printf '%s' '${{ secrets.GITHUB_TOKEN }}' \
+            | sudo podman login ghcr.io \
+                --authfile /tmp/node-config-auth/config.json \
+                --username '${{ github.actor }}' \
+                --password-stdin
+
+      - name: Build and publish ARM64 relay-gpio
+        run: |
+          image="${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}-arm64"
+          sudo podman build \
+            --platform linux/arm64 \
+            --tag "${image}" \
+            --file relay-gpio/Containerfile \
+            relay-gpio
+          sudo podman push \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${image}"
+
+      - name: Build and publish ARM64 webui
+        run: |
+          image="${WEBUI_REPOSITORY}:${RELEASE_TAG}-arm64"
+          sudo podman build \
+            --platform linux/arm64 \
+            --tag "${image}" \
+            --file webui/Containerfile \
+            webui
+          sudo podman push \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${image}"
+
+  build-jadeite:
+    name: Build Jadeite Pi 4 image
+    needs: [build-amd64, build-arm64]
     runs-on: ubuntu-24.04-arm
     steps:
       - name: Check out source
@@ -39,9 +133,7 @@ jobs:
       - name: Install Podman and image tools
         run: |
           sudo apt-get update
-          sudo apt-get install --no-install-recommends --yes \
-            podman \
-            xz-utils
+          sudo apt-get install --no-install-recommends --yes podman xz-utils
 
       - name: Prepare loop devices
         run: |
@@ -58,25 +150,50 @@ jobs:
                 --username '${{ github.actor }}' \
                 --password-stdin
 
+      - name: Publish multi-architecture application tags
+        run: |
+          sudo podman manifest create "${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}"
+          sudo podman manifest add \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}" \
+            "docker://${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}-arm64"
+          sudo podman manifest add \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}" \
+            "docker://${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}-amd64"
+          sudo podman manifest push --all \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}" \
+            "docker://${RELAY_GPIO_REPOSITORY}:${RELEASE_TAG}"
+
+          sudo podman manifest create "${WEBUI_REPOSITORY}:${RELEASE_TAG}"
+          sudo podman manifest add \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${WEBUI_REPOSITORY}:${RELEASE_TAG}" \
+            "docker://${WEBUI_REPOSITORY}:${RELEASE_TAG}-arm64"
+          sudo podman manifest add \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${WEBUI_REPOSITORY}:${RELEASE_TAG}" \
+            "docker://${WEBUI_REPOSITORY}:${RELEASE_TAG}-amd64"
+          sudo podman manifest push --all \
+            --authfile "${REGISTRY_AUTH_FILE}" \
+            "${WEBUI_REPOSITORY}:${RELEASE_TAG}" \
+            "docker://${WEBUI_REPOSITORY}:${RELEASE_TAG}"
+
       - name: Build and generate raw image
         env:
-          VERSION: ${{ github.event.release.tag_name || inputs.release_tag }}
           IMAGE: ghcr.io/fyrastack/k3-utils/node:${{ github.event.release.tag_name || inputs.release_tag }}-rpi4
-          JADEITE_IMAGE: ghcr.io/nothingneko/jadeite:0.0.3-rpi4
-          RELAY_GPIO_IMAGE: ghcr.io/fyrastack/k3-utils/relay-gpio:main
-          WEBUI_IMAGE: ghcr.io/fyrastack/k3-utils/webui:main
-          AURORABOOT_IMAGE: quay.io/kairos/auroraboot:v0.25.2
+          RELAY_GPIO_IMAGE: ghcr.io/fyrastack/k3-utils/relay-gpio:${{ github.event.release.tag_name || inputs.release_tag }}
+          WEBUI_IMAGE: ghcr.io/fyrastack/k3-utils/webui:${{ github.event.release.tag_name || inputs.release_tag }}
           PUSH_IMAGE: "1"
         run: |
           chmod +x node-config/build-pi4.sh
           sudo -E env \
-            REGISTRY_AUTH_FILE=/tmp/node-config-auth/config.json \
-            VERSION="${VERSION}" \
+            REGISTRY_AUTH_FILE="${REGISTRY_AUTH_FILE}" \
+            VERSION="${RELEASE_TAG}" \
             IMAGE="${IMAGE}" \
-            JADEITE_IMAGE="${JADEITE_IMAGE}" \
             RELAY_GPIO_IMAGE="${RELAY_GPIO_IMAGE}" \
             WEBUI_IMAGE="${WEBUI_IMAGE}" \
-            AURORABOOT_IMAGE="${AURORABOOT_IMAGE}" \
             PUSH_IMAGE=1 \
             sh node-config/build-pi4.sh
           sudo chown -R "${USER}:${USER}" build-rpi4
@@ -92,7 +209,6 @@ jobs:
       - name: Upload Pi 4 image to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
         run: |
           raw_image="$(find build-rpi4 -maxdepth 1 -type f -name '*.raw' -print -quit)"
           gh release upload "${RELEASE_TAG}" \

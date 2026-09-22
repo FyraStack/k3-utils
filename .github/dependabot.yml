@@ -4,8 +4,20 @@ multi-ecosystem-groups:
   actions:
     schedule:
       interval: weekly
+  containers:
+    schedule:
+      interval: weekly
 
 updates:
+  # Maintain container image references, including Jadeite and AuroraBoot in
+  # node-config/Containerfile.
+  - package-ecosystem: "docker"
+    directory: "/node-config"
+    patterns:
+      - "ghcr.io/nothingneko/jadeite"
+      - "quay.io/kairos/auroraboot"
+    multi-ecosystem-group: containers
+
   # Maintain GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"

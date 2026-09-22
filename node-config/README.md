@@ -83,12 +83,25 @@ still requires normal Podman push authentication for the destination registry.
 
 `.github/workflows/node-config-release.yml` builds the Pi 4 image whenever a
 GitHub release is published. It also supports manual dispatch for an existing
-release tag. The workflow:
+release tag. The workflow uses three jobs: native x86_64 builds, native ARM64 builds, and a
+Jadeite/raw-image job that depends on both application-image jobs.
 
-1. Builds and publishes `ghcr.io/fyrastack/k3-utils/node:<tag>-rpi4`.
-2. Generates the Pi 4 raw disk image with AuroraBoot.
-3. Compresses the raw image with `xz -9e` using all runner CPUs.
-4. Uploads the compressed image and a SHA-256 checksum to the GitHub release.
+It:
+
+1. Builds and publishes ARM64 and x86_64 variants of `relay-gpio`.
+2. Builds and publishes ARM64 and x86_64 variants of `webui`.
+3. Publishes multi-architecture release tags for both application images after
+   both architecture jobs complete.
+4. Builds and publishes `ghcr.io/fyrastack/k3-utils/node:<tag>-rpi4`, embedding
+   the matching multi-architecture relay and web UI image references.
+5. Generates the Pi 4 raw disk image with AuroraBoot.
+6. Compresses the raw image with `xz -9e` using all runner CPUs.
+7. Uploads the compressed image and a SHA-256 checksum to the GitHub release.
+
+The workflow uses temporary `-arm64` and `-amd64` tags while building, then
+publishes the unsuffixed release tag as a multi-architecture manifest. Container
+engines select the correct architecture from that shared tag, including ARM64 on
+the Pi 4.
 
 The release assets are named from AuroraBoot's generated raw-image name and end
 in `.raw.xz` and `.raw.xz.sha256`. The raw file itself is retained only during

@@ -6,10 +6,12 @@ set -eu
 VERSION="${VERSION:-0.1.0}"
 IMAGE="${IMAGE:-ghcr.io/fyrastack/k3-utils/node:${VERSION}-rpi4}"
 JADEITE_IMAGE="${JADEITE_IMAGE:-ghcr.io/nothingneko/jadeite:0.0.3-rpi4}"
+DEFAULT_AURORABOOT_IMAGE="$(sed -n 's/^FROM //p' node-config/auroraboot.Containerfile)"
+AURORABOOT_IMAGE="${AURORABOOT_IMAGE:-${DEFAULT_AURORABOOT_IMAGE}}"
 RELAY_GPIO_IMAGE="${RELAY_GPIO_IMAGE:-ghcr.io/fyrastack/k3-utils/relay-gpio:main}"
 WEBUI_IMAGE="${WEBUI_IMAGE:-ghcr.io/fyrastack/k3-utils/webui:main}"
 OUTPUT_DIR="${OUTPUT_DIR:-build-rpi4}"
-AURORABOOT_IMAGE="${AURORABOOT_IMAGE:-quay.io/kairos/auroraboot:v0.25.2}"
+
 PUSH_IMAGE="${PUSH_IMAGE:-1}"
 AUTH_FILE="${REGISTRY_AUTH_FILE:-}"
 

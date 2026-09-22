@@ -5,7 +5,7 @@ name: relay-gpio container
     branches:
       - main
     tags:
-      - "v*"
+      - "*"
     paths:
       - "relay-gpio/**"
       - ".github/workflows/relay-gpio-container.yml"
