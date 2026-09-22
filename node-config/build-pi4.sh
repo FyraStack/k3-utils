@@ -11,6 +11,23 @@ WEBUI_IMAGE="${WEBUI_IMAGE:-ghcr.io/fyrastack/k3-utils/webui:main}"
 OUTPUT_DIR="${OUTPUT_DIR:-build-rpi4}"
 AURORABOOT_IMAGE="${AURORABOOT_IMAGE:-quay.io/kairos/auroraboot:v0.25.2}"
 PUSH_IMAGE="${PUSH_IMAGE:-1}"
+AUTH_FILE="${REGISTRY_AUTH_FILE:-}"
+
+if [ -z "${AUTH_FILE}" ]; then
+    if [ -n "${XDG_RUNTIME_DIR:-}" ] && [ -f "${XDG_RUNTIME_DIR}/containers/auth.json" ]; then
+        AUTH_FILE="${XDG_RUNTIME_DIR}/containers/auth.json"
+    elif [ -f "${HOME}/.config/containers/auth.json" ]; then
+        AUTH_FILE="${HOME}/.config/containers/auth.json"
+    elif [ -f "${HOME}/.docker/config.json" ]; then
+        AUTH_FILE="${HOME}/.docker/config.json"
+    fi
+fi
+
+if [ -z "${AUTH_FILE}" ] || [ ! -f "${AUTH_FILE}" ]; then
+    printf '%s\n' 'No container registry auth file found.' >&2
+    printf '%s\n' 'Run podman login ghcr.io or set REGISTRY_AUTH_FILE.' >&2
+    exit 1
+fi
 
 podman build \
     --platform linux/arm64 \
@@ -28,6 +45,8 @@ fi
 mkdir -p "${OUTPUT_DIR}"
 podman run --rm --privileged \
     -v "$(pwd)/${OUTPUT_DIR}:/aurora" \
+    -v "${AUTH_FILE}:/run/containers/auth.json:ro" \
+    -e REGISTRY_AUTH_FILE=/run/containers/auth.json \
     "${AURORABOOT_IMAGE}" \
     --debug \
     --set disable_http_server=true \
