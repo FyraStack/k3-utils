@@ -57,8 +57,10 @@ jobs:
 
       - name: Log in to GHCR
         run: |
+          sudo install -d -m 700 /tmp/node-config-auth
           printf '%s' '${{ secrets.GITHUB_TOKEN }}' \
             | sudo podman login ghcr.io \
+                --authfile /tmp/node-config-auth/config.json \
                 --username '${{ github.actor }}' \
                 --password-stdin
 
@@ -74,7 +76,7 @@ jobs:
         run: |
           chmod +x node-config/build-pi4.sh
           sudo -E env \
-            REGISTRY_AUTH_FILE=/root/.config/containers/auth.json \
+            REGISTRY_AUTH_FILE=/tmp/node-config-auth/config.json \
             VERSION="${VERSION}" \
             IMAGE="${IMAGE}" \
             JADEITE_IMAGE="${JADEITE_IMAGE}" \
