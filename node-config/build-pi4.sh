@@ -23,9 +23,8 @@ if [ -z "${AUTH_FILE}" ]; then
     fi
 fi
 
-if [ -z "${AUTH_FILE}" ] || [ ! -f "${AUTH_FILE}" ]; then
-    printf '%s\n' 'No container registry auth file found.' >&2
-    printf '%s\n' 'Run podman login ghcr.io or set REGISTRY_AUTH_FILE.' >&2
+if [ -n "${AUTH_FILE}" ] && [ ! -f "${AUTH_FILE}" ]; then
+    printf '%s\n' "Registry auth file not found: ${AUTH_FILE}" >&2
     exit 1
 fi
 
@@ -43,16 +42,28 @@ if [ "${PUSH_IMAGE}" = "1" ]; then
 fi
 
 mkdir -p "${OUTPUT_DIR}"
-podman run --rm --privileged \
-    -v "$(pwd)/${OUTPUT_DIR}:/aurora" \
-    -v "${AUTH_FILE}:/run/containers/auth.json:ro" \
-    -e REGISTRY_AUTH_FILE=/run/containers/auth.json \
-    "${AURORABOOT_IMAGE}" \
-    --debug \
-    --set disable_http_server=true \
-    --set disable_netboot=true \
-    --set disk.efi=true \
-    --set "container_image=docker://${IMAGE}" \
-    --set "state_dir=/aurora"
+if [ -n "${AUTH_FILE}" ]; then
+    podman run --rm --privileged \
+        -v "$(pwd)/${OUTPUT_DIR}:/aurora" \
+        -v "${AUTH_FILE}:/run/containers/auth.json:ro" \
+        -e REGISTRY_AUTH_FILE=/run/containers/auth.json \
+        "${AURORABOOT_IMAGE}" \
+        --debug \
+        --set disable_http_server=true \
+        --set disable_netboot=true \
+        --set disk.efi=true \
+        --set "container_image=docker://${IMAGE}" \
+        --set "state_dir=/aurora"
+else
+    podman run --rm --privileged \
+        -v "$(pwd)/${OUTPUT_DIR}:/aurora" \
+        "${AURORABOOT_IMAGE}" \
+        --debug \
+        --set disable_http_server=true \
+        --set disable_netboot=true \
+        --set disk.efi=true \
+        --set "container_image=docker://${IMAGE}" \
+        --set "state_dir=/aurora"
+fi
 
 printf '%s\n' "Pi 4 image written to ${OUTPUT_DIR}"

@@ -69,14 +69,15 @@ OUTPUT_DIR=build-rpi4 sh node-config/build-pi4.sh
 
 Flash the resulting image to the Pi 4 storage using your normal imaging tool.
 The build requires Podman, privileged container support, registry push access
-for `IMAGE`, and network access to GHCR plus the Kairos AuroraBoot image. The
-script passes your Podman/Docker registry auth file into AuroraBoot, so private
-GHCR images can be pulled. It checks `REGISTRY_AUTH_FILE`, then the rootless
-Podman auth file, Docker config, and finally `~/.docker/config.json`.
+for `IMAGE` when `PUSH_IMAGE=1`, and network access to GHCR plus the Kairos
+AuroraBoot image. If a registry auth file is available, the script passes it
+into AuroraBoot for private image pulls. It checks `REGISTRY_AUTH_FILE`, then
+the rootless Podman auth file, Docker config, and finally `~/.docker/config.json`.
 
-`PUSH_IMAGE=0` skips publishing, but the exact image still must already be
-available from a registry that AuroraBoot can access. A local-only image cannot
-be consumed by the AuroraBoot container.
+For public images, no registry auth file is needed by AuroraBoot. `PUSH_IMAGE=0`
+skips publishing, but the exact image must already be available from a registry;
+a local-only image cannot be consumed by the AuroraBoot container. `PUSH_IMAGE=1`
+still requires normal Podman push authentication for the destination registry.
 
 ## Install
 
