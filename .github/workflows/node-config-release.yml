@@ -20,7 +20,7 @@ concurrency:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/${{ github.repository }}/node
+  IMAGE_NAME: ghcr.io/fyrastack/k3-utils/node
   JADEITE_IMAGE: ghcr.io/nothingneko/jadeite:0.0.3-rpi4
   RELAY_GPIO_IMAGE: ghcr.io/fyrastack/k3-utils/relay-gpio:main
   WEBUI_IMAGE: ghcr.io/fyrastack/k3-utils/webui:main
@@ -67,7 +67,7 @@ jobs:
       - name: Build and generate raw image
         env:
           VERSION: ${{ github.event.release.tag_name || inputs.release_tag }}
-          IMAGE: ghcr.io/${{ github.repository }}/node:${{ github.event.release.tag_name || inputs.release_tag }}-rpi4
+          IMAGE: ghcr.io/fyrastack/k3-utils/node:${{ github.event.release.tag_name || inputs.release_tag }}-rpi4
           JADEITE_IMAGE: ghcr.io/nothingneko/jadeite:0.0.3-rpi4
           RELAY_GPIO_IMAGE: ghcr.io/fyrastack/k3-utils/relay-gpio:main
           WEBUI_IMAGE: ghcr.io/fyrastack/k3-utils/webui:main
