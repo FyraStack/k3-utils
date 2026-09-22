@@ -103,9 +103,9 @@ publishes the unsuffixed release tag as a multi-architecture manifest. Container
 engines select the correct architecture from that shared tag, including ARM64 on
 the Pi 4.
 
-The release assets are named from AuroraBoot's generated raw-image name and end
-in `.raw.xz` and `.raw.xz.sha256`. The raw file itself is retained only during
-the workflow and is not uploaded, reducing release storage and transfer size.
+The release assets are named `k3-node-<tag>.raw.xz` and
+`k3-node-<tag>.raw.xz.sha256`. The raw file itself is retained only during the
+workflow and is not uploaded, reducing release storage and transfer size.
 The workflow requires the `relay-gpio` and `webui` images to be pullable by the
 runner and the repository's `GITHUB_TOKEN` to have package write permission.
 

@@ -202,16 +202,18 @@ jobs:
         run: |
           raw_image="$(find build-rpi4 -maxdepth 1 -type f -name '*.raw' -print -quit)"
           test -n "${raw_image}"
-          xz -T0 -9e --keep "${raw_image}"
-          sha256sum "${raw_image}.xz" > "${raw_image}.xz.sha256"
-          ls -lh "${raw_image}" "${raw_image}.xz" "${raw_image}.xz.sha256"
+          release_image="build-rpi4/k3-node-${RELEASE_TAG}.raw"
+          mv "${raw_image}" "${release_image}"
+          xz -T0 -9e --keep "${release_image}"
+          sha256sum "${release_image}.xz" > "${release_image}.xz.sha256"
+          ls -lh "${release_image}" "${release_image}.xz" "${release_image}.xz.sha256"
 
       - name: Upload Pi 4 image to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          raw_image="$(find build-rpi4 -maxdepth 1 -type f -name '*.raw' -print -quit)"
+          release_image="build-rpi4/k3-node-${RELEASE_TAG}.raw.xz"
           gh release upload "${RELEASE_TAG}" \
-            "${raw_image}.xz" \
-            "${raw_image}.xz.sha256" \
+            "${release_image}" \
+            "${release_image}.sha256" \
             --clobber
