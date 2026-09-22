@@ -20,10 +20,14 @@ updates:
 
   - package-ecosystem: "docker"
     directory: "/relay-gpio"
+    patterns:
+      - "*"
     multi-ecosystem-group: containers
 
   - package-ecosystem: "docker"
     directory: "/webui"
+    patterns:
+      - "*"
     multi-ecosystem-group: containers
 
   # Maintain GitHub Actions
