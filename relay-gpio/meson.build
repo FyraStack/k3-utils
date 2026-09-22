@@ -58,8 +58,3 @@ if clang_tidy.found()
     )
   endif
 endif
-
-install_subdir(
-  'public',
-  install_dir: get_option('datadir') / 'relay-gpio',
-)

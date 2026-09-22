@@ -1,0 +1,29 @@
+name: webui container
+
+"on":
+  push:
+    branches: [main]
+    tags: ["v*"]
+    paths:
+      - "webui/**"
+      - ".github/workflows/webui-container.yml"
+  pull_request:
+    paths:
+      - "webui/**"
+      - ".github/workflows/webui-container.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  docker:
+    uses: FyraLabs/actions/.github/workflows/docker.yml@main
+    with:
+      publish: ${{ github.event_name != 'pull_request' }}
+      context: webui
+      dockerfile: webui/Containerfile
+      image_name: ${{ github.repository }}/webui
+    secrets: inherit

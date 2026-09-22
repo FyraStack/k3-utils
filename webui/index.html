@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Kairos relays</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                font-family: system-ui, sans-serif;
+            }
+            body {
+                background: #111;
+                color: #eee;
+                margin: 2rem auto;
+                max-width: 34rem;
+                padding: 0 1rem;
+            }
+            .relay {
+                align-items: center;
+                border-bottom: 1px solid #444;
+                display: flex;
+                justify-content: space-between;
+                padding: 1rem 0;
+            }
+            .state {
+                color: #aaa;
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+            button {
+                background: #333;
+                border: 1px solid #888;
+                color: #fff;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+            }
+            button:disabled {
+                cursor: wait;
+                opacity: 0.6;
+            }
+            #error {
+                color: #f88;
+            }
+            #mode {
+                color: #9f9;
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Relay Controls</h1>
+        <p id="mode"></p>
+        <p id="error" role="alert"></p>
+        <main id="relays"></main>
+        <script src="/config.js"></script>
+        <script>
+            const relayList = document.querySelector("#relays");
+            const relayNames = window.KAIROS_WEBUI_CONFIG?.relayNames ?? [];
+            const error = document.querySelector("#error");
+            const mode = document.querySelector("#mode");
+            const fixtures =
+                new URLSearchParams(window.location.search).has("fixtures") ||
+                window.location.pathname === "/fixtures";
+            let fixtureRelays = [1, 2, 3, 4].map((id) => ({ id, on: false }));
+
+            if (fixtures) {
+                mode.textContent = "[Fixture Mode] - changes stay local and are not sent to GPIO";
+            }
+
+            function render(relays) {
+                relayList.replaceChildren(
+                    ...relays
+                        .filter(
+                            (relay) =>
+                                (relayNames[relay.id - 1] ?? `Relay ${relay.id}`).trim() !== "",
+                        )
+                        .map((relay) => {
+                            const row = document.createElement("div");
+                            row.className = "relay";
+                            const label = document.createElement("span");
+                            label.textContent = relayNames[relay.id - 1] ?? `Relay ${relay.id}`;
+                            const state = document.createElement("span");
+                            state.className = "state";
+                            state.textContent = relay.on ? "ON" : "OFF";
+                            const button = document.createElement("button");
+                            button.textContent = relay.on ? "Turn off" : "Turn on";
+                            button.addEventListener("click", async () => {
+                                button.disabled = true;
+                                try {
+                                    const action = relay.on ? "off" : "on";
+                                    if (fixtures) {
+                                        fixtureRelays = fixtureRelays.map((item) =>
+                                            item.id === relay.id
+                                                ? { ...item, on: action === "on" }
+                                                : item,
+                                        );
+                                        render(fixtureRelays);
+                                        error.textContent = "";
+                                        return;
+                                    }
+                                    const response = await fetch(
+                                        `/api/relays/${relay.id}/${action}`,
+                                        {
+                                            method: "POST",
+                                        },
+                                    );
+                                    if (!response.ok)
+                                        throw new Error(`API returned ${response.status}`);
+                                    render((await response.json()).relays);
+                                    error.textContent = "";
+                                } catch (exception) {
+                                    error.textContent = `Unable to update relay: ${exception.message}`;
+                                    button.disabled = false;
+                                }
+                            });
+                            row.append(label, state, button);
+                            return row;
+                        }),
+                );
+            }
+
+            if (fixtures) {
+                render(fixtureRelays);
+            } else {
+                fetch("/api/relays")
+                    .then((response) => {
+                        if (!response.ok) throw new Error(`API returned ${response.status}`);
+                        return response.json();
+                    })
+                    .then((data) => render(data.relays))
+                    .catch((exception) => {
+                        error.textContent = `Unable to load relays: ${exception.message}`;
+                    });
+            }
+        </script>
+    </body>
+</html>

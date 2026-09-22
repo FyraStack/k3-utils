@@ -1,0 +1,20 @@
+[Unit]
+Description=Kairos relay web UI
+Requires=relay-gpio.service
+After=relay-gpio.service
+
+[Container]
+Image=ghcr.io/fyrastack/k3-utils/webui:main
+ContainerName=kairos-webui
+Network=kairos-relay.network
+PublishPort=8080:8080
+Environment="RELAY_1_NAME=Blessed Son"
+Environment="RELAY_2_NAME="
+Environment="RELAY_3_NAME=Blessed Daughter"
+Environment="RELAY_4_NAME=Chud Daughter"
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

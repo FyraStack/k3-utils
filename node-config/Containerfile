@@ -1,0 +1,16 @@
+# syntax=docker/dockerfile:1
+
+ARG JADEITE_IMAGE=ghcr.io/nothingneko/jadeite:0.0.3-rpi4
+FROM ${JADEITE_IMAGE}
+
+ARG RELAY_GPIO_IMAGE=ghcr.io/fyrastack/k3-utils/relay-gpio:main
+ARG WEBUI_IMAGE=ghcr.io/fyrastack/k3-utils/webui:main
+
+COPY kairos-relay.network /etc/containers/systemd/kairos-relay.network
+COPY relay-gpio.container /etc/containers/systemd/relay-gpio.container
+COPY webui.container /etc/containers/systemd/webui.container
+COPY kairos-apps-setup.service /etc/systemd/system/kairos-apps-setup.service
+
+RUN sed -i "s|Image=.*relay-gpio.*|Image=${RELAY_GPIO_IMAGE}|" /etc/containers/systemd/relay-gpio.container && \
+    sed -i "s|Image=.*webui.*|Image=${WEBUI_IMAGE}|" /etc/containers/systemd/webui.container && \
+    systemctl enable kairos-apps-setup.service

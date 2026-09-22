@@ -1,0 +1,28 @@
+[Unit]
+Description=Kairos relay GPIO service
+Wants=kairos-relay-network.service
+After=kairos-relay-network.service
+
+[Container]
+Image=ghcr.io/fyrastack/k3-utils/relay-gpio:main
+ContainerName=relay-gpio
+Network=kairos-relay.network
+AddDevice=/dev/gpiochip0:/dev/gpiochip0
+Environment=GPIO_CHIP=/dev/gpiochip0
+Environment=RELAY_ACTIVE_LOW=1
+Environment=RELAY_HTTP_PORT=8080
+Environment=RELAY_1_LINE=17
+Environment=RELAY_2_LINE=27
+Environment=RELAY_3_LINE=22
+Environment=RELAY_4_LINE=23
+HealthCmd=wget --no-verbose --tries=1 --spider http://127.0.0.1:8080/healthz
+HealthInterval=30s
+HealthTimeout=3s
+HealthRetries=3
+HealthStartPeriod=5s
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

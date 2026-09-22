@@ -24,7 +24,7 @@ public:
     /**
      * Accepts and handles requests until the process is stopped.
      *
-     * Supported routes are GET /, GET /api/relays, and
+     * Supported routes are GET /healthz, GET /api/relays, and
      * POST /api/relays/{1..4}/{on|off}.
      */
     void run();

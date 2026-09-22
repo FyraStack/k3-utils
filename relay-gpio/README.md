@@ -1,6 +1,10 @@
 # Four-relay libgpiod controller
 
-A small C++17 HTTP service and browser UI for controlling four GPIO relays with
+This is the GPIO/API container for the two-container Kairos deployment. The
+separate `webui` container serves the browser interface; this service does not
+serve static HTML.
+
+A small C++17 HTTP service for controlling four GPIO relays with
 [libgpiod](https://libgpiod.readthedocs.io/). We're using the relays to turn our K3s on and off.
 
 ## Build
@@ -26,18 +30,18 @@ cmake --build build
 
 ### Container
 
-The repository includes an example [`compose.yaml`](../compose.yaml) that uses the
-published multi-architecture image. Start it on the Linux GPIO host from the
-repository root:
+The repository includes [`compose.yaml`](../compose.yaml) and
+[`DEPLOYMENT.md`](../DEPLOYMENT.md) for a two-container Raspberry Pi deployment.
+Start it on the Linux GPIO host from the repository root:
 
 ```sh
 docker compose -f compose.yaml up -d
 ```
 
-The Compose configuration maps `/dev/gpiochip0` into the container and exposes
-port `8080`. Open `http://<board-ip>:8080/` in a browser. Change the `devices`,
-`GPIO_CHIP`, and `RELAY_*_LINE` values in the root `compose.yaml` for a different
-GPIO chip or line mapping.
+The Compose configuration maps `/dev/gpiochip0` into this container, but does
+not publish its API port. The separate `webui` service publishes port `8080` and
+proxies requests to this service. Change the `devices`, `GPIO_CHIP`, and
+`RELAY_*_LINE` values in the root `compose.yaml` for a different chip or mapping.
 
 ## Run
 
@@ -49,10 +53,9 @@ GPIO17/GPIO27/GPIO22/GPIO23 on physical header pins 11/13/15/16:
 sudo ./build/relay-gpio
 ```
 
-Open `http://<board-ip>:8080/` in a browser. The static frontend is loaded from
-`public/index.html` when running from the project directory. If installed with
-Meson, use the installed data directory as the executable's working directory,
-or serve the frontend through a separate web server.
+Open `http://<board-ip>:8080/` in a browser after starting the separate `webui`
+container. To preview the web UI without this service, open
+`http://<board-ip>:8080/?fixtures`; fixture controls do not call the relay API.
 
 Configure a board without changing source:
 

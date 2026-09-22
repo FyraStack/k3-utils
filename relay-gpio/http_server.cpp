@@ -3,7 +3,7 @@
 #include "relay_controller.hpp"
 
 #include <cstdint>
-#include <fstream>
+
 #include <sstream>
 #include <stdexcept>
 #include <string_view>
@@ -103,13 +103,8 @@ void HttpServer::handle_client(int client) {
             return;
         }
 
-        if (method == "GET" && path == "/") {
-            std::ifstream file("public/index.html");
-            if (!file) {
-                throw std::runtime_error("could not open public/index.html");
-            }
-            std::string html((std::istreambuf_iterator<char>(file)), {});
-            send_response(client, 200, "text/html; charset=utf-8", html);
+        if (method == "GET" && path == "/healthz") {
+            send_response(client, 200, "text/plain", "ok\n");
             return;
         }
         send_response(client, 400, "text/plain", "Bad request\n");

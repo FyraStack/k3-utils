@@ -1,0 +1,8 @@
+window.KAIROS_WEBUI_CONFIG = {
+  relayNames: [
+    "$RELAY_1_NAME",
+    "$RELAY_2_NAME",
+    "$RELAY_3_NAME",
+    "$RELAY_4_NAME"
+  ]
+};

@@ -28,17 +28,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get install --no-install-recommends --yes \
         libgpiod3 \
+        wget \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /rootfs/usr/bin/relay-gpio /usr/bin/relay-gpio
-COPY --from=build /rootfs/usr/share/relay-gpio /usr/share/relay-gpio
-
-WORKDIR /usr/share/relay-gpio
 
 ENV GPIO_CHIP=/dev/gpiochip0 \
     RELAY_ACTIVE_LOW=1 \
     RELAY_HTTP_PORT=8080
 
 EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD ["wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:8080/healthz"]
 
 ENTRYPOINT ["/usr/bin/relay-gpio"]

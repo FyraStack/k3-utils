@@ -23,4 +23,3 @@ target_link_libraries(relay-gpio PRIVATE PkgConfig::GPIODCXX)
 target_compile_options(relay-gpio PRIVATE -Wall -Wextra -Wpedantic)
 
 install(TARGETS relay-gpio RUNTIME DESTINATION bin)
-install(DIRECTORY public DESTINATION share/relay-gpio)

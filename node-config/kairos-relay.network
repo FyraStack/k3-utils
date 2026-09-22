@@ -1,0 +1,5 @@
+[Unit]
+Description=Kairos relay application network
+
+[Network]
+NetworkName=kairos-relay

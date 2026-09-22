@@ -1,18 +1,39 @@
 services:
   relay-gpio:
-    image: ghcr.io/fyrastack/k3-utils/relay-gpio:main
+    image: ${RELAY_GPIO_IMAGE:-ghcr.io/fyrastack/k3-utils/relay-gpio:main}
     container_name: relay-gpio
     restart: unless-stopped
-    ports:
-      - "8080:8080"
+    expose:
+      - "8080"
     devices:
-      - "/dev/gpiochip0:/dev/gpiochip0"
+      - "${GPIO_DEVICE:-/dev/gpiochip0}:/dev/gpiochip0"
     environment:
       GPIO_CHIP: /dev/gpiochip0
-      RELAY_ACTIVE_LOW: "1"
+      RELAY_ACTIVE_LOW: "${RELAY_ACTIVE_LOW:-1}"
       RELAY_HTTP_PORT: "8080"
-      # Relay board IN1..IN4: GPIO17/27/22/23 (physical pins 11/13/15/16).
-      RELAY_1_LINE: "17"
-      RELAY_2_LINE: "27"
-      RELAY_3_LINE: "22"
-      RELAY_4_LINE: "23"
+      RELAY_1_LINE: "${RELAY_1_LINE:-17}"
+      RELAY_2_LINE: "${RELAY_2_LINE:-27}"
+      RELAY_3_LINE: "${RELAY_3_LINE:-22}"
+      RELAY_4_LINE: "${RELAY_4_LINE:-23}"
+    healthcheck:
+      test:
+        ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+  webui:
+    image: ${WEBUI_IMAGE:-ghcr.io/fyrastack/k3-utils/webui:main}
+    container_name: kairos-webui
+    environment:
+      RELAY_1_NAME: "${RELAY_1_NAME-Relay 1}"
+      RELAY_2_NAME: "${RELAY_2_NAME-Relay 2}"
+      RELAY_3_NAME: "${RELAY_3_NAME-Relay 3}"
+      RELAY_4_NAME: "${RELAY_4_NAME-Relay 4}"
+    restart: unless-stopped
+    depends_on:
+      relay-gpio:
+        condition: service_healthy
+    ports:
+      - "${WEBUI_PORT:-8080}:8080"
