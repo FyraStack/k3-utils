@@ -79,6 +79,23 @@ skips publishing, but the exact image must already be available from a registry;
 a local-only image cannot be consumed by the AuroraBoot container. `PUSH_IMAGE=1`
 still requires normal Podman push authentication for the destination registry.
 
+## Release automation
+
+`.github/workflows/node-config-release.yml` builds the Pi 4 image whenever a
+GitHub release is published. It also supports manual dispatch for an existing
+release tag. The workflow:
+
+1. Builds and publishes `ghcr.io/fyrastack/k3-utils/node:<tag>-rpi4`.
+2. Generates the Pi 4 raw disk image with AuroraBoot.
+3. Compresses the raw image with `xz -9e` using all runner CPUs.
+4. Uploads the compressed image and a SHA-256 checksum to the GitHub release.
+
+The release assets are named from AuroraBoot's generated raw-image name and end
+in `.raw.xz` and `.raw.xz.sha256`. The raw file itself is retained only during
+the workflow and is not uploaded, reducing release storage and transfer size.
+The workflow requires the `relay-gpio` and `webui` images to be pullable by the
+runner and the repository's `GITHUB_TOKEN` to have package write permission.
+
 ## Install
 
 Copy the units to the system Quadlet directory as root:

@@ -1,0 +1,105 @@
+name: node-config Pi 4 release image
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing release tag to attach the Pi 4 image to
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: node-config-release-image
+  cancel-in-progress: false
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ghcr.io/${{ github.repository }}/node
+  JADEITE_IMAGE: ghcr.io/nothingneko/jadeite:0.0.3-rpi4
+  RELAY_GPIO_IMAGE: ghcr.io/fyrastack/k3-utils/relay-gpio:main
+  WEBUI_IMAGE: ghcr.io/fyrastack/k3-utils/webui:main
+  AURORABOOT_IMAGE: quay.io/kairos/auroraboot:v0.25.2
+
+jobs:
+  build-pi4-image:
+    name: Build and publish Pi 4 raw image
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.release_tag }}
+
+      - name: Install Podman and image tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes \
+            podman \
+            qemu-user-static \
+            xz-utils
+
+      - name: Register ARM64 emulation
+        run: |
+          sudo podman run --rm --privileged \
+            docker.io/multiarch/qemu-user-static --reset -p yes
+
+      - name: Prepare loop devices
+        run: |
+          sudo modprobe loop max_loop=64
+          sudo losetup -f
+          ls -l /dev/loop-control /dev/loop0
+
+      - name: Log in to GHCR
+        run: |
+          printf '%s' '${{ secrets.GITHUB_TOKEN }}' \
+            | sudo podman login ghcr.io \
+                --username '${{ github.actor }}' \
+                --password-stdin
+
+      - name: Build and generate raw image
+        env:
+          VERSION: ${{ github.event.release.tag_name || inputs.release_tag }}
+          IMAGE: ghcr.io/${{ github.repository }}/node:${{ github.event.release.tag_name || inputs.release_tag }}-rpi4
+          JADEITE_IMAGE: ghcr.io/nothingneko/jadeite:0.0.3-rpi4
+          RELAY_GPIO_IMAGE: ghcr.io/fyrastack/k3-utils/relay-gpio:main
+          WEBUI_IMAGE: ghcr.io/fyrastack/k3-utils/webui:main
+          AURORABOOT_IMAGE: quay.io/kairos/auroraboot:v0.25.2
+          PUSH_IMAGE: "1"
+        run: |
+          chmod +x node-config/build-pi4.sh
+          sudo -E env \
+            REGISTRY_AUTH_FILE=/root/.config/containers/auth.json \
+            VERSION="${VERSION}" \
+            IMAGE="${IMAGE}" \
+            JADEITE_IMAGE="${JADEITE_IMAGE}" \
+            RELAY_GPIO_IMAGE="${RELAY_GPIO_IMAGE}" \
+            WEBUI_IMAGE="${WEBUI_IMAGE}" \
+            AURORABOOT_IMAGE="${AURORABOOT_IMAGE}" \
+            PUSH_IMAGE=1 \
+            sh node-config/build-pi4.sh
+          sudo chown -R "${USER}:${USER}" build-rpi4
+
+      - name: Compress raw image and create checksum
+        run: |
+          raw_image="$(find build-rpi4 -maxdepth 1 -type f -name '*.raw' -print -quit)"
+          test -n "${raw_image}"
+          xz -T0 -9e --keep "${raw_image}"
+          sha256sum "${raw_image}.xz" > "${raw_image}.xz.sha256"
+          ls -lh "${raw_image}" "${raw_image}.xz" "${raw_image}.xz.sha256"
+
+      - name: Upload Pi 4 image to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+        run: |
+          raw_image="$(find build-rpi4 -maxdepth 1 -type f -name '*.raw' -print -quit)"
+          gh release upload "${RELEASE_TAG}" \
+            "${raw_image}.xz" \
+            "${raw_image}.xz.sha256" \
+            --clobber
