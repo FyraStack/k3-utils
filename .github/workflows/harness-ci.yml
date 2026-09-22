@@ -1,0 +1,42 @@
+name: harness CI
+
+on:
+  push:
+    paths:
+      - "harness/**"
+      - ".github/workflows/harness-ci.yml"
+  pull_request:
+    paths:
+      - "harness/**"
+      - ".github/workflows/harness-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  create-harness-artifacts:
+    name: Generate harness outputs
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install WireViz dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes \
+            graphviz \
+            wireviz
+
+      - name: Generate harness artifacts
+        working-directory: harness
+        run: wireviz k3-harness.yml -f ps
+
+      - name: Upload harness artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: wireviz
+          path: |
+            harness/k3-harness.png
+            harness/k3-harness.svg
+          if-no-files-found: error

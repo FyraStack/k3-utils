@@ -16,3 +16,7 @@ wireviz k3-harness.yml
 ```
 
 this should render the png, svg, bom, and html.
+
+## actions
+
+whenever you push to main, the png and svg outputs should regenerate as artifact outputs. same thing for releases.

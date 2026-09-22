@@ -18,6 +18,14 @@ updates:
       - "quay.io/kairos/auroraboot"
     multi-ecosystem-group: containers
 
+  - package-ecosystem: "docker"
+    directory: "/relay-gpio"
+    multi-ecosystem-group: containers
+
+  - package-ecosystem: "docker"
+    directory: "/webui"
+    multi-ecosystem-group: containers
+
   # Maintain GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"

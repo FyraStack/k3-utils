@@ -1,0 +1,45 @@
+name: Harness release artifacts
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing release tag to attach harness artifacts to
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  create-harness-artifacts:
+    name: Generate harness outputs
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.release_tag }}
+
+      - name: Install WireViz dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes \
+            graphviz \
+            wireviz
+
+      - name: Generate harness artifacts
+        working-directory: harness
+        run: wireviz k3-harness.yml -f ps
+
+      - name: Upload harness artifacts to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+        run: |
+          gh release upload "${RELEASE_TAG}" \
+            harness/k3-harness.png \
+            harness/k3-harness.svg \
+            --clobber
