@@ -6,8 +6,11 @@
 
 RelayController::RelayController() :
     chip_(gpiod::chip(configuration::gpio_chip())),
-    active_low_(configuration::environment_int("RELAY_ACTIVE_LOW", 1) != 0), offsets_(configuration::relay_offsets()),
-    request_(make_request()) {}
+    active_low_(configuration::environment_int("RELAY_ACTIVE_LOW", 1) != 0),
+    contact_nc_(configuration::environment_int("RELAY_CONTACT_NC", 0) != 0), offsets_(configuration::relay_offsets()),
+    request_(make_request()) {
+    state_.fill(contact_nc_);
+}
 
 RelayController::~RelayController() {
     if (request_) {
@@ -30,14 +33,20 @@ void RelayController::set(std::size_t index, bool on) {
     if (index >= relay_count) {
         throw std::out_of_range("relay index");
     }
-    request_.set_value(offsets_[index],
-                       on ? (on_value() ? gpiod::line::value::ACTIVE : gpiod::line::value::INACTIVE)
-                          : (off_value() ? gpiod::line::value::ACTIVE : gpiod::line::value::INACTIVE));
+    request_.set_value(offsets_[index], value_for(on) ? gpiod::line::value::ACTIVE : gpiod::line::value::INACTIVE);
     state_[index] = on;
 }
 
 bool RelayController::get(std::size_t index) const { return state_.at(index); }
 
-int RelayController::on_value() const { return active_low_ ? 0 : 1; }
+int RelayController::value_for(bool on) const { return on ? on_value() : off_value(); }
 
-int RelayController::off_value() const { return active_low_ ? 1 : 0; }
+int RelayController::on_value() const {
+    const bool energize = contact_nc_ ? false : true;
+    return energize == active_low_ ? 0 : 1;
+}
+
+int RelayController::off_value() const {
+    const bool energize = contact_nc_ ? true : false;
+    return energize == active_low_ ? 0 : 1;
+}

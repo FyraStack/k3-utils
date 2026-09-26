@@ -40,7 +40,7 @@ connectors:
     hide_disconnected_pins: false
 
   # Separate connector blocks keep the four relay channels visually distinct.
-  # For every relay: COM receives EPS +12V and NO feeds the K3 output. NC is unused.
+  # For every relay: COM receives EPS +12V and NC feeds the K3 output. NO is unused.
   RELAY1:
     {
       type: Relay 1 SPDT screw terminal,
@@ -161,11 +161,11 @@ connections:
   - - ATX24: [16, 17]
     - PS_ON_JUMPER
 
-  # Each K3 output switches +12V through relay COM -> NO. COM/0V is direct.
+  # Each K3 output switches +12V through relay COM -> NC. COM/0V is direct.
   - - EPS8: [1]
     - PWR_R1_IN
     - RELAY1: [3]
-  - - RELAY1: [2]
+  - - RELAY1: [1]
     - PWR_R1_OUT
     - J1: [1]
   - - EPS8: [5]
@@ -175,7 +175,7 @@ connections:
   - - EPS8: [2]
     - PWR_R2_IN
     - RELAY2: [3]
-  - - RELAY2: [2]
+  - - RELAY2: [1]
     - PWR_R2_OUT
     - J2: [1]
   - - EPS8: [6]
@@ -185,7 +185,7 @@ connections:
   - - EPS8: [3]
     - PWR_R3_IN
     - RELAY3: [3]
-  - - RELAY3: [2]
+  - - RELAY3: [1]
     - PWR_R3_OUT
     - J3: [1]
   - - EPS8: [7]
@@ -195,7 +195,7 @@ connections:
   - - EPS8: [4]
     - PWR_R4_IN
     - RELAY4: [3]
-  - - RELAY4: [2]
+  - - RELAY4: [1]
     - PWR_R4_OUT
     - J4: [1]
   - - EPS8: [8]
@@ -203,7 +203,7 @@ connections:
     - J4: [2]
 
   # Relay control header to Raspberry Pi physical header pins.
-  # GPIO inputs are assumed active-low, matching RELAY_ACTIVE_LOW=1 in compose.yaml.
+  # GPIO inputs are assumed active-low; relay contacts use NC, matching RELAY_CONTACT_NC=1.
   - - RPI40: [2]
     - CTRL_5V
     - RELAY_CTRL: [1]

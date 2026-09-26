@@ -62,7 +62,8 @@ The default relay mapping is:
 | IN3         |        22 |           15 |
 | IN4         |        23 |           16 |
 
-The default is active-low (`RELAY_ACTIVE_LOW=1`). A blank relay name hides that
+The default uses active-low GPIO (`RELAY_ACTIVE_LOW=1`) and normally-closed relay
+contacts (`RELAY_CONTACT_NC=1`). A blank relay name hides that
 relay from the web UI without changing its relay ID or GPIO mapping. Override
 names and line mappings in an `.env` file beside `compose.yaml`, for example:
 
@@ -81,6 +82,7 @@ RELAY_2_LINE=27
 RELAY_3_LINE=22
 RELAY_4_LINE=23
 RELAY_ACTIVE_LOW=1
+RELAY_CONTACT_NC=1
 GPIO_DEVICE=/dev/gpiochip0
 ```
 

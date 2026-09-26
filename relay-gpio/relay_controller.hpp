@@ -14,7 +14,8 @@ public:
      * Opens the configured GPIO chip and requests all relay lines as outputs.
      *
      * All relays are initialized to their electrical off value. Configuration
-     * is read from GPIO_CHIP, RELAY_ACTIVE_LOW, and RELAY_*_LINE variables.
+     * is read from GPIO_CHIP, RELAY_ACTIVE_LOW, RELAY_CONTACT_NC, and
+     * RELAY_*_LINE variables.
      *
      * @throws std::exception if the GPIO chip or any relay line cannot be opened.
      */
@@ -30,7 +31,7 @@ public:
      * Changes the logical state of one relay.
      *
      * @param index Zero-based relay index, from 0 through relay_count - 1.
-     * @param on True to energize the relay; false to de-energize it.
+     * @param on True to power the relay output; false to disconnect it.
      * @throws std::out_of_range if index is outside the relay range.
      */
     void set(std::size_t index, bool on);
@@ -45,10 +46,13 @@ public:
     bool get(std::size_t index) const;
 
 private:
-    /// Converts logical on into the GPIO level required by relay polarity.
+    /// Converts a logical output state into the GPIO level required by contact type and polarity.
+    int value_for(bool on) const;
+
+    /// Converts logical on into the GPIO level required by relay polarity and contact type.
     int on_value() const;
 
-    /// Converts logical off into the GPIO level required by relay polarity.
+    /// Converts logical off into the GPIO level required by relay polarity and contact type.
     int off_value() const;
 
     /// Creates a v2 GPIO line request for all configured relay offsets.
@@ -56,6 +60,7 @@ private:
 
     gpiod::chip chip_;
     bool active_low_;
+    bool contact_nc_;
     std::array<unsigned int, relay_count> offsets_;
     gpiod::line_request request_;
     std::array<bool, relay_count> state_{};

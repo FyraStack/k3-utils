@@ -46,7 +46,7 @@ proxies requests to this service. Change the `devices`, `GPIO_CHIP`, and
 ## Run
 
 The defaults are `/dev/gpiochip0`, GPIO line offsets `17, 27, 22, 23`, active-low
-relays, and HTTP port `8080`. These connect relay-board IN1-IN4 to Raspberry Pi
+relays, normally-closed contacts, and HTTP port `8080`. These connect relay-board IN1-IN4 to Raspberry Pi
 GPIO17/GPIO27/GPIO22/GPIO23 on physical header pins 11/13/15/16:
 
 ```sh
@@ -62,7 +62,7 @@ Configure a board without changing source:
 ```sh
 GPIO_CHIP=/dev/gpiochip0 \
 RELAY_1_LINE=17 RELAY_2_LINE=27 RELAY_3_LINE=22 RELAY_4_LINE=23 \
-RELAY_ACTIVE_LOW=1 RELAY_HTTP_PORT=8080 \
+RELAY_ACTIVE_LOW=1 RELAY_CONTACT_NC=1 RELAY_HTTP_PORT=8080 \
 sudo ./build/relay-gpio
 ```
 
@@ -79,7 +79,9 @@ powered supply.
 - `POST /api/relays/1/on` turns relay 1 on.
 - `POST /api/relays/1/off` turns relay 1 off.
 
-The service initializes all relays off and releases GPIO lines when it exits. `RELAY_ACTIVE_LOW=1`
-means the electrical low level is treated as on; set it to `0` for active-high relay modules.
+The service initializes normally-closed outputs powered and releases GPIO lines when it exits.
+`RELAY_ACTIVE_LOW=1` means the electrical low level energizes the relay; set it to `0` for
+active-high relay modules. `RELAY_CONTACT_NC=1` makes logical `on` mean the NC contact is
+closed and powered, so the relay coil is de-energized while on.
 For production use, place it behind authentication/TLS or restrict access to a
 trusted network; the example server deliberately has no authentication.
