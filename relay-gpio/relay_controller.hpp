@@ -43,17 +43,17 @@ public:
      * @return True if the relay is logically on, otherwise false.
      * @throws std::out_of_range if index is outside the relay range.
      */
-    bool get(std::size_t index) const;
+    [[nodiscard]] bool get(std::size_t index) const;
 
 private:
     /// Converts a logical output state into the GPIO level required by contact type and polarity.
-    int value_for(bool on) const;
+    [[nodiscard]] int value_for(bool on) const;
 
     /// Converts logical on into the GPIO level required by relay polarity and contact type.
-    int on_value() const;
+    [[nodiscard]] int on_value() const;
 
     /// Converts logical off into the GPIO level required by relay polarity and contact type.
-    int off_value() const;
+    [[nodiscard]] int off_value() const;
 
     /// Creates a v2 GPIO line request for all configured relay offsets.
     gpiod::line_request make_request();

@@ -27,12 +27,12 @@ public:
      * Supported routes are GET /healthz, GET /api/relays, and
      * POST /api/relays/{1..4}/{on|off}.
      */
-    void run();
+    void run() const;
 
 private:
-    void handle_client(int client);
-    void send_response(int client, int status, const std::string &content_type, const std::string &body) const;
-    std::string relay_state_json() const;
+    void handle_client(int client) const;
+    static void send_response(int client, int status, const std::string &content_type, const std::string &body) ;
+    [[nodiscard]] std::string relay_state_json() const;
 
     int port_;
     int server_socket_ = -1;
