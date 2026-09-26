@@ -271,28 +271,28 @@
 <!-- GND_J2 -->
 <g id="node19" class="node">
 <title>GND_J2</title>
-<polygon fill="#ffffff" stroke="black" points="1514.75,-738.12 1264.25,-738.12 1264.25,-625.38 1514.75,-625.38 1514.75,-738.12"/>
-<polygon fill="none" stroke="black" points="1264.25,-714.38 1264.25,-738.12 1514.75,-738.12 1514.75,-714.38 1264.25,-714.38"/>
-<text xml:space="preserve" text-anchor="start" x="1363.25" y="-720.83" font-family="arial" font-size="14.00">GND_J2</text>
-<polygon fill="none" stroke="black" points="1264.25,-690.62 1264.25,-714.38 1370.75,-714.38 1370.75,-690.62 1264.25,-690.62"/>
-<text xml:space="preserve" text-anchor="start" x="1310.38" y="-697.08" font-family="arial" font-size="14.00">1x</text>
-<polygon fill="none" stroke="black" points="1370.75,-690.62 1370.75,-714.38 1514.75,-714.38 1514.75,-690.62 1370.75,-690.62"/>
-<text xml:space="preserve" text-anchor="start" x="1416.88" y="-697.08" font-family="arial" font-size="14.00">16 AWG</text>
-<text xml:space="preserve" text-anchor="start" x="1321" y="-675.33" font-family="arial" font-size="14.00"> </text>
-<text xml:space="preserve" text-anchor="start" x="1266.25" y="-655.58" font-family="arial" font-size="14.00">EPS8:6:COM (BK)</text>
-<text xml:space="preserve" text-anchor="start" x="1383.5" y="-655.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:BK &#160;&#160;&#160;</text>
-<text xml:space="preserve" text-anchor="start" x="1450.5" y="-655.58" font-family="arial" font-size="14.00">J2:2:COM</text>
-<polygon fill="#000000" stroke="none" points="1264.25,-649.12 1264.25,-651.12 1514.75,-651.12 1514.75,-649.12 1264.25,-649.12"/>
-<polygon fill="#000000" stroke="none" points="1264.25,-647.12 1264.25,-649.12 1514.75,-649.12 1514.75,-647.12 1264.25,-647.12"/>
-<polygon fill="#000000" stroke="none" points="1264.25,-645.12 1264.25,-647.12 1514.75,-647.12 1514.75,-645.12 1264.25,-645.12"/>
-<text xml:space="preserve" text-anchor="start" x="1321" y="-629.83" font-family="arial" font-size="14.00"> </text>
+<polygon fill="#ffffff" stroke="black" points="1514.75,-760.12 1264.25,-760.12 1264.25,-647.38 1514.75,-647.38 1514.75,-760.12"/>
+<polygon fill="none" stroke="black" points="1264.25,-736.38 1264.25,-760.12 1514.75,-760.12 1514.75,-736.38 1264.25,-736.38"/>
+<text xml:space="preserve" text-anchor="start" x="1363.25" y="-742.83" font-family="arial" font-size="14.00">GND_J2</text>
+<polygon fill="none" stroke="black" points="1264.25,-712.62 1264.25,-736.38 1370.75,-736.38 1370.75,-712.62 1264.25,-712.62"/>
+<text xml:space="preserve" text-anchor="start" x="1310.38" y="-719.08" font-family="arial" font-size="14.00">1x</text>
+<polygon fill="none" stroke="black" points="1370.75,-712.62 1370.75,-736.38 1514.75,-736.38 1514.75,-712.62 1370.75,-712.62"/>
+<text xml:space="preserve" text-anchor="start" x="1416.88" y="-719.08" font-family="arial" font-size="14.00">16 AWG</text>
+<text xml:space="preserve" text-anchor="start" x="1321" y="-697.33" font-family="arial" font-size="14.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="1266.25" y="-677.58" font-family="arial" font-size="14.00">EPS8:6:COM (BK)</text>
+<text xml:space="preserve" text-anchor="start" x="1383.5" y="-677.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:BK &#160;&#160;&#160;</text>
+<text xml:space="preserve" text-anchor="start" x="1450.5" y="-677.58" font-family="arial" font-size="14.00">J2:2:COM</text>
+<polygon fill="#000000" stroke="none" points="1264.25,-671.12 1264.25,-673.12 1514.75,-673.12 1514.75,-671.12 1264.25,-671.12"/>
+<polygon fill="#000000" stroke="none" points="1264.25,-669.12 1264.25,-671.12 1514.75,-671.12 1514.75,-669.12 1264.25,-669.12"/>
+<polygon fill="#000000" stroke="none" points="1264.25,-667.12 1264.25,-669.12 1514.75,-669.12 1514.75,-667.12 1264.25,-667.12"/>
+<text xml:space="preserve" text-anchor="start" x="1321" y="-651.83" font-family="arial" font-size="14.00"> </text>
 </g>
 <!-- EPS8&#45;&#45;GND_J2 -->
 <g id="edge13" class="edge">
 <title>EPS8:e&#45;&#45;GND_J2:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M251.75,-699.38C638.36,-699.43 737.42,-724.24 1120.01,-677.76 1183.56,-670.89 1196.98,-647.14 1264.25,-646.13"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M251.75,-701.38C637.87,-701.37 736.93,-726.18 1120.25,-679.75 1185.3,-671.87 1198.72,-648.13 1264.25,-648.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M251.75,-703.37C637.38,-703.32 736.45,-728.12 1120.49,-681.74 1187.04,-672.86 1200.47,-649.11 1264.25,-650.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M251.75,-699.38C637.79,-699.38 734.45,-695.44 1120.16,-677.75 1183.55,-674.97 1199.33,-668.28 1264.25,-668.13"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M251.75,-701.38C637.87,-701.38 734.54,-697.43 1120.25,-679.75 1184.33,-676.81 1200.11,-670.12 1264.25,-670.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M251.75,-703.37C637.95,-703.37 734.62,-699.43 1120.34,-681.75 1185.11,-678.65 1200.89,-671.97 1264.25,-672.12"/>
 </g>
 <!-- PWR_R3_IN -->
 <g id="node20" class="node">
@@ -430,47 +430,47 @@
 <!-- PWR_R1_OUT -->
 <g id="node15" class="node">
 <title>PWR_R1_OUT</title>
-<polygon fill="#ffffff" stroke="black" points="1502,-1276.12 1277,-1276.12 1277,-1163.38 1502,-1163.38 1502,-1276.12"/>
-<polygon fill="none" stroke="black" points="1277,-1252.38 1277,-1276.12 1502,-1276.12 1502,-1252.38 1277,-1252.38"/>
-<text xml:space="preserve" text-anchor="start" x="1342.62" y="-1258.83" font-family="arial" font-size="14.00">PWR_R1_OUT</text>
-<polygon fill="none" stroke="black" points="1277,-1228.62 1277,-1252.38 1370.75,-1252.38 1370.75,-1228.62 1277,-1228.62"/>
-<text xml:space="preserve" text-anchor="start" x="1316.75" y="-1235.08" font-family="arial" font-size="14.00">1x</text>
-<polygon fill="none" stroke="black" points="1370.75,-1228.62 1370.75,-1252.38 1502,-1252.38 1502,-1228.62 1370.75,-1228.62"/>
-<text xml:space="preserve" text-anchor="start" x="1410.5" y="-1235.08" font-family="arial" font-size="14.00">16 AWG</text>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1213.33" font-family="arial" font-size="14.00"> </text>
-<text xml:space="preserve" text-anchor="start" x="1279" y="-1193.58" font-family="arial" font-size="14.00">RELAY1:2:NO</text>
-<text xml:space="preserve" text-anchor="start" x="1370" y="-1193.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
-<text xml:space="preserve" text-anchor="start" x="1438.5" y="-1193.58" font-family="arial" font-size="14.00">J1:1:+12V</text>
-<polygon fill="#000000" stroke="none" points="1277,-1187.12 1277,-1189.12 1502,-1189.12 1502,-1187.12 1277,-1187.12"/>
-<polygon fill="#ff0000" stroke="none" points="1277,-1185.12 1277,-1187.12 1502,-1187.12 1502,-1185.12 1277,-1185.12"/>
-<polygon fill="#000000" stroke="none" points="1277,-1183.12 1277,-1185.12 1502,-1185.12 1502,-1183.12 1277,-1183.12"/>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1167.83" font-family="arial" font-size="14.00"> </text>
+<polygon fill="#ffffff" stroke="black" points="1501.25,-1305.12 1277.75,-1305.12 1277.75,-1192.38 1501.25,-1192.38 1501.25,-1305.12"/>
+<polygon fill="none" stroke="black" points="1277.75,-1281.38 1277.75,-1305.12 1501.25,-1305.12 1501.25,-1281.38 1277.75,-1281.38"/>
+<text xml:space="preserve" text-anchor="start" x="1342.62" y="-1287.83" font-family="arial" font-size="14.00">PWR_R1_OUT</text>
+<polygon fill="none" stroke="black" points="1277.75,-1257.62 1277.75,-1281.38 1370.75,-1281.38 1370.75,-1257.62 1277.75,-1257.62"/>
+<text xml:space="preserve" text-anchor="start" x="1317.12" y="-1264.08" font-family="arial" font-size="14.00">1x</text>
+<polygon fill="none" stroke="black" points="1370.75,-1257.62 1370.75,-1281.38 1501.25,-1281.38 1501.25,-1257.62 1370.75,-1257.62"/>
+<text xml:space="preserve" text-anchor="start" x="1410.12" y="-1264.08" font-family="arial" font-size="14.00">16 AWG</text>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1242.33" font-family="arial" font-size="14.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="1279.75" y="-1222.58" font-family="arial" font-size="14.00">RELAY1:1:NC</text>
+<text xml:space="preserve" text-anchor="start" x="1369.25" y="-1222.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
+<text xml:space="preserve" text-anchor="start" x="1437.75" y="-1222.58" font-family="arial" font-size="14.00">J1:1:+12V</text>
+<polygon fill="#000000" stroke="none" points="1277.75,-1216.12 1277.75,-1218.12 1501.25,-1218.12 1501.25,-1216.12 1277.75,-1216.12"/>
+<polygon fill="#ff0000" stroke="none" points="1277.75,-1214.12 1277.75,-1216.12 1501.25,-1216.12 1501.25,-1214.12 1277.75,-1214.12"/>
+<polygon fill="#000000" stroke="none" points="1277.75,-1212.12 1277.75,-1214.12 1501.25,-1214.12 1501.25,-1212.12 1277.75,-1212.12"/>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1196.83" font-family="arial" font-size="14.00"> </text>
 </g>
 <!-- RELAY1&#45;&#45;PWR_R1_OUT -->
 <g id="edge5" class="edge">
 <title>RELAY1:e&#45;&#45;PWR_R1_OUT:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1198C1177.01,-1198.38 1196.14,-1184.51 1276,-1184.13"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-1200C1178.19,-1200 1197.31,-1186.12 1276,-1186.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1202C1179.36,-1201.62 1198.49,-1187.74 1276,-1188.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1221.75C1177.56,-1221.92 1197.07,-1213.3 1276.75,-1213.13"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-1223.75C1178.37,-1223.75 1197.88,-1215.12 1276.75,-1215.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1225.75C1179.18,-1225.58 1198.69,-1216.95 1276.75,-1217.12"/>
 </g>
 <!-- J1 -->
 <g id="node4" class="node">
 <title>J1</title>
-<polygon fill="#ffffff" stroke="black" points="1909.5,-1124.25 1658.75,-1124.25 1658.75,-1029.25 1909.5,-1029.25 1909.5,-1124.25"/>
-<polygon fill="none" stroke="black" points="1658.75,-1100.5 1658.75,-1124.25 1909.5,-1124.25 1909.5,-1100.5 1658.75,-1100.5"/>
-<text xml:space="preserve" text-anchor="start" x="1777" y="-1106.95" font-family="arial" font-size="14.00">J1</text>
-<polygon fill="none" stroke="black" points="1658.75,-1076.75 1658.75,-1100.5 1871.5,-1100.5 1871.5,-1076.75 1658.75,-1076.75"/>
-<text xml:space="preserve" text-anchor="start" x="1662.75" y="-1083.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
-<polygon fill="none" stroke="black" points="1871.5,-1076.75 1871.5,-1100.5 1909.5,-1100.5 1909.5,-1076.75 1871.5,-1076.75"/>
-<text xml:space="preserve" text-anchor="start" x="1875.5" y="-1083.2" font-family="arial" font-size="14.00">2&#45;pin</text>
-<polygon fill="none" stroke="black" points="1658.75,-1053 1658.75,-1076.75 1771.38,-1076.75 1771.38,-1053 1658.75,-1053"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-1059.45" font-family="arial" font-size="14.00">1</text>
-<polygon fill="none" stroke="black" points="1771.38,-1053 1771.38,-1076.75 1909.5,-1076.75 1909.5,-1053 1771.38,-1053"/>
-<text xml:space="preserve" text-anchor="start" x="1824.31" y="-1059.45" font-family="arial" font-size="14.00">+12V</text>
-<polygon fill="none" stroke="black" points="1658.75,-1029.25 1658.75,-1053 1771.38,-1053 1771.38,-1029.25 1658.75,-1029.25"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-1035.7" font-family="arial" font-size="14.00">2</text>
-<polygon fill="none" stroke="black" points="1771.38,-1029.25 1771.38,-1053 1909.5,-1053 1909.5,-1029.25 1771.38,-1029.25"/>
-<text xml:space="preserve" text-anchor="start" x="1823.94" y="-1035.7" font-family="arial" font-size="14.00">COM</text>
+<polygon fill="#ffffff" stroke="black" points="1909.5,-1169.25 1658.75,-1169.25 1658.75,-1074.25 1909.5,-1074.25 1909.5,-1169.25"/>
+<polygon fill="none" stroke="black" points="1658.75,-1145.5 1658.75,-1169.25 1909.5,-1169.25 1909.5,-1145.5 1658.75,-1145.5"/>
+<text xml:space="preserve" text-anchor="start" x="1777" y="-1151.95" font-family="arial" font-size="14.00">J1</text>
+<polygon fill="none" stroke="black" points="1658.75,-1121.75 1658.75,-1145.5 1871.5,-1145.5 1871.5,-1121.75 1658.75,-1121.75"/>
+<text xml:space="preserve" text-anchor="start" x="1662.75" y="-1128.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
+<polygon fill="none" stroke="black" points="1871.5,-1121.75 1871.5,-1145.5 1909.5,-1145.5 1909.5,-1121.75 1871.5,-1121.75"/>
+<text xml:space="preserve" text-anchor="start" x="1875.5" y="-1128.2" font-family="arial" font-size="14.00">2&#45;pin</text>
+<polygon fill="none" stroke="black" points="1658.75,-1098 1658.75,-1121.75 1771.38,-1121.75 1771.38,-1098 1658.75,-1098"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-1104.45" font-family="arial" font-size="14.00">1</text>
+<polygon fill="none" stroke="black" points="1771.38,-1098 1771.38,-1121.75 1909.5,-1121.75 1909.5,-1098 1771.38,-1098"/>
+<text xml:space="preserve" text-anchor="start" x="1824.31" y="-1104.45" font-family="arial" font-size="14.00">+12V</text>
+<polygon fill="none" stroke="black" points="1658.75,-1074.25 1658.75,-1098 1771.38,-1098 1771.38,-1074.25 1658.75,-1074.25"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-1080.7" font-family="arial" font-size="14.00">2</text>
+<polygon fill="none" stroke="black" points="1771.38,-1074.25 1771.38,-1098 1909.5,-1098 1909.5,-1074.25 1771.38,-1074.25"/>
+<text xml:space="preserve" text-anchor="start" x="1823.94" y="-1080.7" font-family="arial" font-size="14.00">COM</text>
 </g>
 <!-- RELAY2 -->
 <g id="node5" class="node">
@@ -504,47 +504,47 @@
 <!-- PWR_R2_OUT -->
 <g id="node18" class="node">
 <title>PWR_R2_OUT</title>
-<polygon fill="#ffffff" stroke="black" points="1502,-1114.12 1277,-1114.12 1277,-1001.38 1502,-1001.38 1502,-1114.12"/>
-<polygon fill="none" stroke="black" points="1277,-1090.38 1277,-1114.12 1502,-1114.12 1502,-1090.38 1277,-1090.38"/>
-<text xml:space="preserve" text-anchor="start" x="1342.62" y="-1096.83" font-family="arial" font-size="14.00">PWR_R2_OUT</text>
-<polygon fill="none" stroke="black" points="1277,-1066.62 1277,-1090.38 1370.75,-1090.38 1370.75,-1066.62 1277,-1066.62"/>
-<text xml:space="preserve" text-anchor="start" x="1316.75" y="-1073.08" font-family="arial" font-size="14.00">1x</text>
-<polygon fill="none" stroke="black" points="1370.75,-1066.62 1370.75,-1090.38 1502,-1090.38 1502,-1066.62 1370.75,-1066.62"/>
-<text xml:space="preserve" text-anchor="start" x="1410.5" y="-1073.08" font-family="arial" font-size="14.00">16 AWG</text>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1051.33" font-family="arial" font-size="14.00"> </text>
-<text xml:space="preserve" text-anchor="start" x="1279" y="-1031.58" font-family="arial" font-size="14.00">RELAY2:2:NO</text>
-<text xml:space="preserve" text-anchor="start" x="1370" y="-1031.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
-<text xml:space="preserve" text-anchor="start" x="1438.5" y="-1031.58" font-family="arial" font-size="14.00">J2:1:+12V</text>
-<polygon fill="#000000" stroke="none" points="1277,-1025.12 1277,-1027.12 1502,-1027.12 1502,-1025.12 1277,-1025.12"/>
-<polygon fill="#ff0000" stroke="none" points="1277,-1023.12 1277,-1025.12 1502,-1025.12 1502,-1023.12 1277,-1023.12"/>
-<polygon fill="#000000" stroke="none" points="1277,-1021.12 1277,-1023.12 1502,-1023.12 1502,-1021.12 1277,-1021.12"/>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1005.83" font-family="arial" font-size="14.00"> </text>
+<polygon fill="#ffffff" stroke="black" points="1501.25,-1153.12 1277.75,-1153.12 1277.75,-1040.38 1501.25,-1040.38 1501.25,-1153.12"/>
+<polygon fill="none" stroke="black" points="1277.75,-1129.38 1277.75,-1153.12 1501.25,-1153.12 1501.25,-1129.38 1277.75,-1129.38"/>
+<text xml:space="preserve" text-anchor="start" x="1342.62" y="-1135.83" font-family="arial" font-size="14.00">PWR_R2_OUT</text>
+<polygon fill="none" stroke="black" points="1277.75,-1105.62 1277.75,-1129.38 1370.75,-1129.38 1370.75,-1105.62 1277.75,-1105.62"/>
+<text xml:space="preserve" text-anchor="start" x="1317.12" y="-1112.08" font-family="arial" font-size="14.00">1x</text>
+<polygon fill="none" stroke="black" points="1370.75,-1105.62 1370.75,-1129.38 1501.25,-1129.38 1501.25,-1105.62 1370.75,-1105.62"/>
+<text xml:space="preserve" text-anchor="start" x="1410.12" y="-1112.08" font-family="arial" font-size="14.00">16 AWG</text>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1090.33" font-family="arial" font-size="14.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="1279.75" y="-1070.58" font-family="arial" font-size="14.00">RELAY2:1:NC</text>
+<text xml:space="preserve" text-anchor="start" x="1369.25" y="-1070.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
+<text xml:space="preserve" text-anchor="start" x="1437.75" y="-1070.58" font-family="arial" font-size="14.00">J2:1:+12V</text>
+<polygon fill="#000000" stroke="none" points="1277.75,-1064.12 1277.75,-1066.12 1501.25,-1066.12 1501.25,-1064.12 1277.75,-1064.12"/>
+<polygon fill="#ff0000" stroke="none" points="1277.75,-1062.12 1277.75,-1064.12 1501.25,-1064.12 1501.25,-1062.12 1277.75,-1062.12"/>
+<polygon fill="#000000" stroke="none" points="1277.75,-1060.12 1277.75,-1062.12 1501.25,-1062.12 1501.25,-1060.12 1277.75,-1060.12"/>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-1044.83" font-family="arial" font-size="14.00"> </text>
 </g>
 <!-- RELAY2&#45;&#45;PWR_R2_OUT -->
 <g id="edge11" class="edge">
 <title>RELAY2:e&#45;&#45;PWR_R2_OUT:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1055C1177.52,-1056.09 1194.43,-1023.21 1276,-1022.13"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-1057C1179.29,-1057 1196.21,-1024.12 1276,-1024.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1059C1181.07,-1057.91 1197.98,-1025.04 1276,-1026.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1078.75C1177.3,-1079.29 1196.22,-1061.66 1276.75,-1061.13"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-1080.75C1178.67,-1080.75 1197.58,-1063.12 1276.75,-1063.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-1082.75C1180.03,-1082.21 1198.95,-1064.59 1276.75,-1065.12"/>
 </g>
 <!-- J2 -->
 <g id="node6" class="node">
 <title>J2</title>
-<polygon fill="#ffffff" stroke="black" points="1909.5,-778.25 1658.75,-778.25 1658.75,-683.25 1909.5,-683.25 1909.5,-778.25"/>
-<polygon fill="none" stroke="black" points="1658.75,-754.5 1658.75,-778.25 1909.5,-778.25 1909.5,-754.5 1658.75,-754.5"/>
-<text xml:space="preserve" text-anchor="start" x="1777" y="-760.95" font-family="arial" font-size="14.00">J2</text>
-<polygon fill="none" stroke="black" points="1658.75,-730.75 1658.75,-754.5 1871.5,-754.5 1871.5,-730.75 1658.75,-730.75"/>
-<text xml:space="preserve" text-anchor="start" x="1662.75" y="-737.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
-<polygon fill="none" stroke="black" points="1871.5,-730.75 1871.5,-754.5 1909.5,-754.5 1909.5,-730.75 1871.5,-730.75"/>
-<text xml:space="preserve" text-anchor="start" x="1875.5" y="-737.2" font-family="arial" font-size="14.00">2&#45;pin</text>
-<polygon fill="none" stroke="black" points="1658.75,-707 1658.75,-730.75 1771.38,-730.75 1771.38,-707 1658.75,-707"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-713.45" font-family="arial" font-size="14.00">1</text>
-<polygon fill="none" stroke="black" points="1771.38,-707 1771.38,-730.75 1909.5,-730.75 1909.5,-707 1771.38,-707"/>
-<text xml:space="preserve" text-anchor="start" x="1824.31" y="-713.45" font-family="arial" font-size="14.00">+12V</text>
-<polygon fill="none" stroke="black" points="1658.75,-683.25 1658.75,-707 1771.38,-707 1771.38,-683.25 1658.75,-683.25"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-689.7" font-family="arial" font-size="14.00">2</text>
-<polygon fill="none" stroke="black" points="1771.38,-683.25 1771.38,-707 1909.5,-707 1909.5,-683.25 1771.38,-683.25"/>
-<text xml:space="preserve" text-anchor="start" x="1823.94" y="-689.7" font-family="arial" font-size="14.00">COM</text>
+<polygon fill="#ffffff" stroke="black" points="1909.5,-803.25 1658.75,-803.25 1658.75,-708.25 1909.5,-708.25 1909.5,-803.25"/>
+<polygon fill="none" stroke="black" points="1658.75,-779.5 1658.75,-803.25 1909.5,-803.25 1909.5,-779.5 1658.75,-779.5"/>
+<text xml:space="preserve" text-anchor="start" x="1777" y="-785.95" font-family="arial" font-size="14.00">J2</text>
+<polygon fill="none" stroke="black" points="1658.75,-755.75 1658.75,-779.5 1871.5,-779.5 1871.5,-755.75 1658.75,-755.75"/>
+<text xml:space="preserve" text-anchor="start" x="1662.75" y="-762.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
+<polygon fill="none" stroke="black" points="1871.5,-755.75 1871.5,-779.5 1909.5,-779.5 1909.5,-755.75 1871.5,-755.75"/>
+<text xml:space="preserve" text-anchor="start" x="1875.5" y="-762.2" font-family="arial" font-size="14.00">2&#45;pin</text>
+<polygon fill="none" stroke="black" points="1658.75,-732 1658.75,-755.75 1771.38,-755.75 1771.38,-732 1658.75,-732"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-738.45" font-family="arial" font-size="14.00">1</text>
+<polygon fill="none" stroke="black" points="1771.38,-732 1771.38,-755.75 1909.5,-755.75 1909.5,-732 1771.38,-732"/>
+<text xml:space="preserve" text-anchor="start" x="1824.31" y="-738.45" font-family="arial" font-size="14.00">+12V</text>
+<polygon fill="none" stroke="black" points="1658.75,-708.25 1658.75,-732 1771.38,-732 1771.38,-708.25 1658.75,-708.25"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-714.7" font-family="arial" font-size="14.00">2</text>
+<polygon fill="none" stroke="black" points="1771.38,-708.25 1771.38,-732 1909.5,-732 1909.5,-708.25 1771.38,-708.25"/>
+<text xml:space="preserve" text-anchor="start" x="1823.94" y="-714.7" font-family="arial" font-size="14.00">COM</text>
 </g>
 <!-- RELAY3 -->
 <g id="node7" class="node">
@@ -578,47 +578,47 @@
 <!-- PWR_R3_OUT -->
 <g id="node21" class="node">
 <title>PWR_R3_OUT</title>
-<polygon fill="#ffffff" stroke="black" points="1502,-875.12 1277,-875.12 1277,-762.38 1502,-762.38 1502,-875.12"/>
-<polygon fill="none" stroke="black" points="1277,-851.38 1277,-875.12 1502,-875.12 1502,-851.38 1277,-851.38"/>
-<text xml:space="preserve" text-anchor="start" x="1342.62" y="-857.83" font-family="arial" font-size="14.00">PWR_R3_OUT</text>
-<polygon fill="none" stroke="black" points="1277,-827.62 1277,-851.38 1370.75,-851.38 1370.75,-827.62 1277,-827.62"/>
-<text xml:space="preserve" text-anchor="start" x="1316.75" y="-834.08" font-family="arial" font-size="14.00">1x</text>
-<polygon fill="none" stroke="black" points="1370.75,-827.62 1370.75,-851.38 1502,-851.38 1502,-827.62 1370.75,-827.62"/>
-<text xml:space="preserve" text-anchor="start" x="1410.5" y="-834.08" font-family="arial" font-size="14.00">16 AWG</text>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-812.33" font-family="arial" font-size="14.00"> </text>
-<text xml:space="preserve" text-anchor="start" x="1279" y="-792.58" font-family="arial" font-size="14.00">RELAY3:2:NO</text>
-<text xml:space="preserve" text-anchor="start" x="1370" y="-792.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
-<text xml:space="preserve" text-anchor="start" x="1438.5" y="-792.58" font-family="arial" font-size="14.00">J3:1:+12V</text>
-<polygon fill="#000000" stroke="none" points="1277,-786.12 1277,-788.12 1502,-788.12 1502,-786.12 1277,-786.12"/>
-<polygon fill="#ff0000" stroke="none" points="1277,-784.12 1277,-786.12 1502,-786.12 1502,-784.12 1277,-784.12"/>
-<polygon fill="#000000" stroke="none" points="1277,-782.12 1277,-784.12 1502,-784.12 1502,-782.12 1277,-782.12"/>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-766.83" font-family="arial" font-size="14.00"> </text>
+<polygon fill="#ffffff" stroke="black" points="1501.25,-897.12 1277.75,-897.12 1277.75,-784.38 1501.25,-784.38 1501.25,-897.12"/>
+<polygon fill="none" stroke="black" points="1277.75,-873.38 1277.75,-897.12 1501.25,-897.12 1501.25,-873.38 1277.75,-873.38"/>
+<text xml:space="preserve" text-anchor="start" x="1342.62" y="-879.83" font-family="arial" font-size="14.00">PWR_R3_OUT</text>
+<polygon fill="none" stroke="black" points="1277.75,-849.62 1277.75,-873.38 1370.75,-873.38 1370.75,-849.62 1277.75,-849.62"/>
+<text xml:space="preserve" text-anchor="start" x="1317.12" y="-856.08" font-family="arial" font-size="14.00">1x</text>
+<polygon fill="none" stroke="black" points="1370.75,-849.62 1370.75,-873.38 1501.25,-873.38 1501.25,-849.62 1370.75,-849.62"/>
+<text xml:space="preserve" text-anchor="start" x="1410.12" y="-856.08" font-family="arial" font-size="14.00">16 AWG</text>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-834.33" font-family="arial" font-size="14.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="1279.75" y="-814.58" font-family="arial" font-size="14.00">RELAY3:1:NC</text>
+<text xml:space="preserve" text-anchor="start" x="1369.25" y="-814.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
+<text xml:space="preserve" text-anchor="start" x="1437.75" y="-814.58" font-family="arial" font-size="14.00">J3:1:+12V</text>
+<polygon fill="#000000" stroke="none" points="1277.75,-808.12 1277.75,-810.12 1501.25,-810.12 1501.25,-808.12 1277.75,-808.12"/>
+<polygon fill="#ff0000" stroke="none" points="1277.75,-806.12 1277.75,-808.12 1501.25,-808.12 1501.25,-806.12 1277.75,-806.12"/>
+<polygon fill="#000000" stroke="none" points="1277.75,-804.12 1277.75,-806.12 1501.25,-806.12 1501.25,-804.12 1277.75,-804.12"/>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-788.83" font-family="arial" font-size="14.00"> </text>
 </g>
 <!-- RELAY3&#45;&#45;PWR_R3_OUT -->
 <g id="edge17" class="edge">
 <title>RELAY3:e&#45;&#45;PWR_R3_OUT:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-775C1178.8,-775.15 1198.24,-783.28 1276,-783.13"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-777C1178.03,-777 1197.47,-785.13 1276,-785.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-779C1177.26,-778.85 1196.7,-786.97 1276,-787.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-798.75C1178.95,-798.85 1198.54,-805.22 1276.75,-805.13"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-800.75C1178.33,-800.75 1197.92,-807.12 1276.75,-807.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-802.75C1177.71,-802.65 1197.3,-809.03 1276.75,-809.12"/>
 </g>
 <!-- J3 -->
 <g id="node8" class="node">
 <title>J3</title>
-<polygon fill="#ffffff" stroke="black" points="1909.5,-653.25 1658.75,-653.25 1658.75,-558.25 1909.5,-558.25 1909.5,-653.25"/>
-<polygon fill="none" stroke="black" points="1658.75,-629.5 1658.75,-653.25 1909.5,-653.25 1909.5,-629.5 1658.75,-629.5"/>
-<text xml:space="preserve" text-anchor="start" x="1777" y="-635.95" font-family="arial" font-size="14.00">J3</text>
-<polygon fill="none" stroke="black" points="1658.75,-605.75 1658.75,-629.5 1871.5,-629.5 1871.5,-605.75 1658.75,-605.75"/>
-<text xml:space="preserve" text-anchor="start" x="1662.75" y="-612.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
-<polygon fill="none" stroke="black" points="1871.5,-605.75 1871.5,-629.5 1909.5,-629.5 1909.5,-605.75 1871.5,-605.75"/>
-<text xml:space="preserve" text-anchor="start" x="1875.5" y="-612.2" font-family="arial" font-size="14.00">2&#45;pin</text>
-<polygon fill="none" stroke="black" points="1658.75,-582 1658.75,-605.75 1771.38,-605.75 1771.38,-582 1658.75,-582"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-588.45" font-family="arial" font-size="14.00">1</text>
-<polygon fill="none" stroke="black" points="1771.38,-582 1771.38,-605.75 1909.5,-605.75 1909.5,-582 1771.38,-582"/>
-<text xml:space="preserve" text-anchor="start" x="1824.31" y="-588.45" font-family="arial" font-size="14.00">+12V</text>
-<polygon fill="none" stroke="black" points="1658.75,-558.25 1658.75,-582 1771.38,-582 1771.38,-558.25 1658.75,-558.25"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-564.7" font-family="arial" font-size="14.00">2</text>
-<polygon fill="none" stroke="black" points="1771.38,-558.25 1771.38,-582 1909.5,-582 1909.5,-558.25 1771.38,-558.25"/>
-<text xml:space="preserve" text-anchor="start" x="1823.94" y="-564.7" font-family="arial" font-size="14.00">COM</text>
+<polygon fill="#ffffff" stroke="black" points="1909.5,-672.25 1658.75,-672.25 1658.75,-577.25 1909.5,-577.25 1909.5,-672.25"/>
+<polygon fill="none" stroke="black" points="1658.75,-648.5 1658.75,-672.25 1909.5,-672.25 1909.5,-648.5 1658.75,-648.5"/>
+<text xml:space="preserve" text-anchor="start" x="1777" y="-654.95" font-family="arial" font-size="14.00">J3</text>
+<polygon fill="none" stroke="black" points="1658.75,-624.75 1658.75,-648.5 1871.5,-648.5 1871.5,-624.75 1658.75,-624.75"/>
+<text xml:space="preserve" text-anchor="start" x="1662.75" y="-631.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
+<polygon fill="none" stroke="black" points="1871.5,-624.75 1871.5,-648.5 1909.5,-648.5 1909.5,-624.75 1871.5,-624.75"/>
+<text xml:space="preserve" text-anchor="start" x="1875.5" y="-631.2" font-family="arial" font-size="14.00">2&#45;pin</text>
+<polygon fill="none" stroke="black" points="1658.75,-601 1658.75,-624.75 1771.38,-624.75 1771.38,-601 1658.75,-601"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-607.45" font-family="arial" font-size="14.00">1</text>
+<polygon fill="none" stroke="black" points="1771.38,-601 1771.38,-624.75 1909.5,-624.75 1909.5,-601 1771.38,-601"/>
+<text xml:space="preserve" text-anchor="start" x="1824.31" y="-607.45" font-family="arial" font-size="14.00">+12V</text>
+<polygon fill="none" stroke="black" points="1658.75,-577.25 1658.75,-601 1771.38,-601 1771.38,-577.25 1658.75,-577.25"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-583.7" font-family="arial" font-size="14.00">2</text>
+<polygon fill="none" stroke="black" points="1771.38,-577.25 1771.38,-601 1909.5,-601 1909.5,-577.25 1771.38,-577.25"/>
+<text xml:space="preserve" text-anchor="start" x="1823.94" y="-583.7" font-family="arial" font-size="14.00">COM</text>
 </g>
 <!-- RELAY4 -->
 <g id="node9" class="node">
@@ -652,47 +652,47 @@
 <!-- PWR_R4_OUT -->
 <g id="node24" class="node">
 <title>PWR_R4_OUT</title>
-<polygon fill="#ffffff" stroke="black" points="1502,-598.12 1277,-598.12 1277,-485.38 1502,-485.38 1502,-598.12"/>
-<polygon fill="none" stroke="black" points="1277,-574.38 1277,-598.12 1502,-598.12 1502,-574.38 1277,-574.38"/>
-<text xml:space="preserve" text-anchor="start" x="1342.62" y="-580.83" font-family="arial" font-size="14.00">PWR_R4_OUT</text>
-<polygon fill="none" stroke="black" points="1277,-550.62 1277,-574.38 1370.75,-574.38 1370.75,-550.62 1277,-550.62"/>
-<text xml:space="preserve" text-anchor="start" x="1316.75" y="-557.08" font-family="arial" font-size="14.00">1x</text>
-<polygon fill="none" stroke="black" points="1370.75,-550.62 1370.75,-574.38 1502,-574.38 1502,-550.62 1370.75,-550.62"/>
-<text xml:space="preserve" text-anchor="start" x="1410.5" y="-557.08" font-family="arial" font-size="14.00">16 AWG</text>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-535.33" font-family="arial" font-size="14.00"> </text>
-<text xml:space="preserve" text-anchor="start" x="1279" y="-515.58" font-family="arial" font-size="14.00">RELAY4:2:NO</text>
-<text xml:space="preserve" text-anchor="start" x="1370" y="-515.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
-<text xml:space="preserve" text-anchor="start" x="1438.5" y="-515.58" font-family="arial" font-size="14.00">J4:1:+12V</text>
-<polygon fill="#000000" stroke="none" points="1277,-509.12 1277,-511.12 1502,-511.12 1502,-509.12 1277,-509.12"/>
-<polygon fill="#ff0000" stroke="none" points="1277,-507.12 1277,-509.12 1502,-509.12 1502,-507.12 1277,-507.12"/>
-<polygon fill="#000000" stroke="none" points="1277,-505.12 1277,-507.12 1502,-507.12 1502,-505.12 1277,-505.12"/>
-<text xml:space="preserve" text-anchor="start" x="1320.62" y="-489.82" font-family="arial" font-size="14.00"> </text>
+<polygon fill="#ffffff" stroke="black" points="1501.25,-608.12 1277.75,-608.12 1277.75,-495.38 1501.25,-495.38 1501.25,-608.12"/>
+<polygon fill="none" stroke="black" points="1277.75,-584.38 1277.75,-608.12 1501.25,-608.12 1501.25,-584.38 1277.75,-584.38"/>
+<text xml:space="preserve" text-anchor="start" x="1342.62" y="-590.83" font-family="arial" font-size="14.00">PWR_R4_OUT</text>
+<polygon fill="none" stroke="black" points="1277.75,-560.62 1277.75,-584.38 1370.75,-584.38 1370.75,-560.62 1277.75,-560.62"/>
+<text xml:space="preserve" text-anchor="start" x="1317.12" y="-567.08" font-family="arial" font-size="14.00">1x</text>
+<polygon fill="none" stroke="black" points="1370.75,-560.62 1370.75,-584.38 1501.25,-584.38 1501.25,-560.62 1370.75,-560.62"/>
+<text xml:space="preserve" text-anchor="start" x="1410.12" y="-567.08" font-family="arial" font-size="14.00">16 AWG</text>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-545.33" font-family="arial" font-size="14.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="1279.75" y="-525.58" font-family="arial" font-size="14.00">RELAY4:1:NC</text>
+<text xml:space="preserve" text-anchor="start" x="1369.25" y="-525.58" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:RD &#160;&#160;&#160;</text>
+<text xml:space="preserve" text-anchor="start" x="1437.75" y="-525.58" font-family="arial" font-size="14.00">J4:1:+12V</text>
+<polygon fill="#000000" stroke="none" points="1277.75,-519.12 1277.75,-521.12 1501.25,-521.12 1501.25,-519.12 1277.75,-519.12"/>
+<polygon fill="#ff0000" stroke="none" points="1277.75,-517.12 1277.75,-519.12 1501.25,-519.12 1501.25,-517.12 1277.75,-517.12"/>
+<polygon fill="#000000" stroke="none" points="1277.75,-515.12 1277.75,-517.12 1501.25,-517.12 1501.25,-515.12 1277.75,-515.12"/>
+<text xml:space="preserve" text-anchor="start" x="1320.62" y="-499.82" font-family="arial" font-size="14.00"> </text>
 </g>
 <!-- RELAY4&#45;&#45;PWR_R4_OUT -->
 <g id="edge23" class="edge">
 <title>RELAY4:e&#45;&#45;PWR_R4_OUT:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-583C1183.07,-584.86 1188.44,-507.99 1276,-506.13"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-585C1185.06,-585 1190.44,-508.12 1276,-508.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-587C1187.06,-585.14 1192.43,-508.26 1276,-510.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-606.75C1185.98,-608.74 1186.27,-518.12 1276.75,-516.13"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1099.5,-608.75C1187.98,-608.75 1188.27,-518.13 1276.75,-518.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1099.5,-610.75C1189.98,-608.76 1190.27,-518.13 1276.75,-520.12"/>
 </g>
 <!-- J4 -->
 <g id="node10" class="node">
 <title>J4</title>
-<polygon fill="#ffffff" stroke="black" points="1909.5,-521.25 1658.75,-521.25 1658.75,-426.25 1909.5,-426.25 1909.5,-521.25"/>
-<polygon fill="none" stroke="black" points="1658.75,-497.5 1658.75,-521.25 1909.5,-521.25 1909.5,-497.5 1658.75,-497.5"/>
-<text xml:space="preserve" text-anchor="start" x="1777" y="-503.95" font-family="arial" font-size="14.00">J4</text>
-<polygon fill="none" stroke="black" points="1658.75,-473.75 1658.75,-497.5 1871.5,-497.5 1871.5,-473.75 1658.75,-473.75"/>
-<text xml:space="preserve" text-anchor="start" x="1662.75" y="-480.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
-<polygon fill="none" stroke="black" points="1871.5,-473.75 1871.5,-497.5 1909.5,-497.5 1909.5,-473.75 1871.5,-473.75"/>
-<text xml:space="preserve" text-anchor="start" x="1875.5" y="-480.2" font-family="arial" font-size="14.00">2&#45;pin</text>
-<polygon fill="none" stroke="black" points="1658.75,-450 1658.75,-473.75 1771.38,-473.75 1771.38,-450 1658.75,-450"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-456.45" font-family="arial" font-size="14.00">1</text>
-<polygon fill="none" stroke="black" points="1771.38,-450 1771.38,-473.75 1909.5,-473.75 1909.5,-450 1771.38,-450"/>
-<text xml:space="preserve" text-anchor="start" x="1824.31" y="-456.45" font-family="arial" font-size="14.00">+12V</text>
-<polygon fill="none" stroke="black" points="1658.75,-426.25 1658.75,-450 1771.38,-450 1771.38,-426.25 1658.75,-426.25"/>
-<text xml:space="preserve" text-anchor="start" x="1711.31" y="-432.7" font-family="arial" font-size="14.00">2</text>
-<polygon fill="none" stroke="black" points="1771.38,-426.25 1771.38,-450 1909.5,-450 1909.5,-426.25 1771.38,-426.25"/>
-<text xml:space="preserve" text-anchor="start" x="1823.94" y="-432.7" font-family="arial" font-size="14.00">COM</text>
+<polygon fill="#ffffff" stroke="black" points="1909.5,-528.25 1658.75,-528.25 1658.75,-433.25 1909.5,-433.25 1909.5,-528.25"/>
+<polygon fill="none" stroke="black" points="1658.75,-504.5 1658.75,-528.25 1909.5,-528.25 1909.5,-504.5 1658.75,-504.5"/>
+<text xml:space="preserve" text-anchor="start" x="1777" y="-510.95" font-family="arial" font-size="14.00">J4</text>
+<polygon fill="none" stroke="black" points="1658.75,-480.75 1658.75,-504.5 1871.5,-504.5 1871.5,-480.75 1658.75,-480.75"/>
+<text xml:space="preserve" text-anchor="start" x="1662.75" y="-487.2" font-family="arial" font-size="14.00">Molex Mini&#45;Fit Jr 2&#45;pin (K3 output)</text>
+<polygon fill="none" stroke="black" points="1871.5,-480.75 1871.5,-504.5 1909.5,-504.5 1909.5,-480.75 1871.5,-480.75"/>
+<text xml:space="preserve" text-anchor="start" x="1875.5" y="-487.2" font-family="arial" font-size="14.00">2&#45;pin</text>
+<polygon fill="none" stroke="black" points="1658.75,-457 1658.75,-480.75 1771.38,-480.75 1771.38,-457 1658.75,-457"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-463.45" font-family="arial" font-size="14.00">1</text>
+<polygon fill="none" stroke="black" points="1771.38,-457 1771.38,-480.75 1909.5,-480.75 1909.5,-457 1771.38,-457"/>
+<text xml:space="preserve" text-anchor="start" x="1824.31" y="-463.45" font-family="arial" font-size="14.00">+12V</text>
+<polygon fill="none" stroke="black" points="1658.75,-433.25 1658.75,-457 1771.38,-457 1771.38,-433.25 1658.75,-433.25"/>
+<text xml:space="preserve" text-anchor="start" x="1711.31" y="-439.7" font-family="arial" font-size="14.00">2</text>
+<polygon fill="none" stroke="black" points="1771.38,-433.25 1771.38,-457 1909.5,-457 1909.5,-433.25 1771.38,-433.25"/>
+<text xml:space="preserve" text-anchor="start" x="1823.94" y="-439.7" font-family="arial" font-size="14.00">COM</text>
 </g>
 <!-- RPI40 -->
 <g id="node11" class="node">
@@ -1066,16 +1066,16 @@
 <!-- PWR_R1_OUT&#45;&#45;J1 -->
 <g id="edge6" class="edge">
 <title>PWR_R1_OUT:e&#45;&#45;J1:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-1184.13C1588.75,-1186.45 1569.05,-1065.2 1658.75,-1062.88"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1503,-1186.12C1590.73,-1186.12 1571.02,-1064.87 1658.75,-1064.88"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-1188.12C1592.7,-1185.8 1573,-1064.55 1658.75,-1066.87"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-1213.13C1584.08,-1215.34 1572.94,-1110.09 1658.75,-1107.88"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1502.25,-1215.12C1586.07,-1215.12 1574.93,-1109.88 1658.75,-1109.87"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-1217.12C1588.06,-1214.91 1576.92,-1109.66 1658.75,-1111.87"/>
 </g>
 <!-- GND_J1&#45;&#45;J1 -->
 <g id="edge8" class="edge">
 <title>GND_J1:e&#45;&#45;J1:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-905.13C1296.65,-905.54 1340.52,-939.07 1515.29,-987.82 1582.09,-1007.45 1592.7,-1040.51 1658.75,-1039.13"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-907.13C1295.43,-907.12 1339.3,-940.66 1514.75,-989.75 1580.19,-1008.06 1590.8,-1041.12 1658.75,-1041.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-909.12C1294.22,-908.71 1338.09,-942.25 1514.21,-991.68 1578.28,-1008.67 1588.89,-1041.74 1658.75,-1043.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-905.13C1301.38,-906.03 1340.44,-966.07 1515.41,-1026.86 1581.7,-1050.95 1591.78,-1085.57 1658.75,-1084.13"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-907.12C1299.7,-907.12 1338.76,-967.16 1514.75,-1028.75 1579.78,-1051.51 1589.86,-1086.12 1658.75,-1086.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-909.12C1298.03,-908.22 1337.09,-968.25 1514.09,-1030.64 1577.86,-1052.07 1587.94,-1086.68 1658.75,-1088.12"/>
 </g>
 <!-- PWR_R2_IN&#45;&#45;RELAY2 -->
 <g id="edge10" class="edge">
@@ -1087,16 +1087,16 @@
 <!-- PWR_R2_OUT&#45;&#45;J2 -->
 <g id="edge12" class="edge">
 <title>PWR_R2_OUT:e&#45;&#45;J2:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-1022.13C1653.51,-1025 1504.65,-719.75 1658.75,-716.88"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1503,-1024.12C1655.31,-1024.12 1506.44,-718.88 1658.75,-718.88"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-1026.12C1657.1,-1023.25 1508.24,-718 1658.75,-720.87"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-1061.13C1658.48,-1064.02 1498.94,-744.77 1658.75,-741.88"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1502.25,-1063.12C1660.27,-1063.13 1500.73,-743.87 1658.75,-743.88"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-1065.12C1662.06,-1062.23 1502.52,-742.98 1658.75,-745.87"/>
 </g>
 <!-- GND_J2&#45;&#45;J2 -->
 <g id="edge14" class="edge">
 <title>GND_J2:e&#45;&#45;J2:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1514.75,-646.13C1584.03,-647.73 1593.39,-694.73 1658.75,-693.13"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1514.75,-648.12C1582.07,-648.13 1591.43,-695.13 1658.75,-695.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1514.75,-650.12C1580.11,-648.52 1589.47,-695.52 1658.75,-697.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1514.75,-668.13C1584.47,-669.79 1592.97,-719.79 1658.75,-718.13"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1514.75,-670.12C1582.5,-670.12 1591,-720.12 1658.75,-720.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1514.75,-672.12C1580.53,-670.46 1589.03,-720.46 1658.75,-722.12"/>
 </g>
 <!-- PWR_R3_IN&#45;&#45;RELAY3 -->
 <g id="edge16" class="edge">
@@ -1108,16 +1108,16 @@
 <!-- PWR_R3_OUT&#45;&#45;J3 -->
 <g id="edge18" class="edge">
 <title>PWR_R3_OUT:e&#45;&#45;J3:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-783.13C1610.72,-785.76 1547.23,-594.51 1658.75,-591.88"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1503,-785.12C1612.62,-785.12 1549.13,-593.87 1658.75,-593.88"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-787.12C1614.52,-784.49 1551.03,-593.24 1658.75,-595.87"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-805.13C1611.22,-807.76 1545.99,-613.51 1658.75,-610.88"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1502.25,-807.12C1613.12,-807.13 1547.88,-612.88 1658.75,-612.88"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-809.12C1615.01,-806.49 1549.78,-612.24 1658.75,-614.87"/>
 </g>
 <!-- GND_J3&#45;&#45;J3 -->
 <g id="edge20" class="edge">
 <title>GND_J3:e&#45;&#45;J3:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-433.13C1291.77,-433.27 1345.16,-411.63 1515.42,-471.87 1589.27,-499.8 1583.73,-570.28 1658.75,-568.13"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-435.12C1292.52,-435.12 1345.92,-413.48 1514.75,-473.75 1587.28,-499.64 1581.74,-570.13 1658.75,-570.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-437.12C1293.27,-436.98 1346.67,-415.34 1514.08,-475.63 1585.29,-499.48 1579.75,-569.97 1658.75,-572.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-433.13C1292.39,-433.22 1346.96,-415.82 1515.48,-481.89 1590.5,-513.12 1581.43,-589.36 1658.75,-587.13"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-435.12C1293,-435.12 1347.57,-417.72 1514.75,-483.75 1588.51,-512.88 1579.44,-589.12 1658.75,-589.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1113.25,-437.12C1293.61,-437.03 1348.17,-419.63 1514.02,-485.61 1586.53,-512.64 1577.46,-588.89 1658.75,-591.12"/>
 </g>
 <!-- PWR_R4_IN&#45;&#45;RELAY4 -->
 <g id="edge22" class="edge">
@@ -1129,16 +1129,16 @@
 <!-- PWR_R4_OUT&#45;&#45;J4 -->
 <g id="edge24" class="edge">
 <title>PWR_R4_OUT:e&#45;&#45;J4:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-506.13C1573.27,-507.65 1584.6,-461.4 1658.75,-459.88"/>
-<path fill="none" stroke="#ff0000" stroke-width="2" d="M1503,-508.12C1575.21,-508.12 1586.54,-461.88 1658.75,-461.88"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M1503,-510.12C1577.15,-508.6 1588.48,-462.35 1658.75,-463.87"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-516.13C1573.21,-517.7 1583.88,-468.45 1658.75,-466.88"/>
+<path fill="none" stroke="#ff0000" stroke-width="2" d="M1502.25,-518.13C1575.17,-518.13 1585.83,-468.88 1658.75,-468.87"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M1502.25,-520.12C1577.12,-518.55 1587.79,-469.3 1658.75,-470.87"/>
 </g>
 <!-- GND_J4&#45;&#45;J4 -->
 <g id="edge26" class="edge">
 <title>GND_J4:e&#45;&#45;J4:w</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M681.88,-376.13C1053.07,-376.17 1145.43,-396.2 1514.9,-423.76 1579.68,-428.73 1595.38,-436.32 1658.75,-436.13"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M681.88,-378.12C1052.65,-378.12 1145.01,-398.15 1514.75,-425.75 1578.81,-430.53 1594.51,-438.12 1658.75,-438.12"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M681.88,-380.12C1052.22,-380.08 1144.58,-400.11 1514.6,-427.74 1577.94,-432.33 1593.64,-439.93 1658.75,-440.12"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M681.88,-376.13C1052.95,-376.14 1145.95,-389.09 1514.94,-424.76 1580.22,-431.39 1595.48,-443.56 1658.75,-443.13"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M681.88,-378.12C1052.67,-378.12 1145.67,-391.07 1514.75,-426.75 1578.97,-432.96 1594.23,-445.12 1658.75,-445.13"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M681.88,-380.12C1052.4,-380.11 1145.4,-393.05 1514.56,-428.74 1577.72,-434.52 1592.98,-446.69 1658.75,-447.12"/>
 </g>
 <!-- CTRL_5V&#45;&#45;RELAY_CTRL -->
 <g id="edge28" class="edge">
