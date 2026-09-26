@@ -42,11 +42,11 @@ bool RelayController::get(std::size_t index) const { return state_.at(index); }
 int RelayController::value_for(bool on) const { return on ? on_value() : off_value(); }
 
 int RelayController::on_value() const {
-    const bool energize = contact_nc_ ? false : true;
+    const bool energize = !contact_nc_;
     return energize == active_low_ ? 0 : 1;
 }
 
 int RelayController::off_value() const {
-    const bool energize = contact_nc_ ? true : false;
+    const bool energize = contact_nc_;
     return energize == active_low_ ? 0 : 1;
 }
